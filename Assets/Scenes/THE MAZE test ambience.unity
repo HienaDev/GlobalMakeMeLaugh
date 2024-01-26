@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1178,28 +1178,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 25866545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &159609610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159609606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5198ed56449e00478edea10ddd25e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  shiftSpeedScale: 2
-  left: 97
-  right: 100
-  down: 113
-  up: 101
-  back: 115
-  foward: 119
-  verticalMouseSensitivity: 1.2
-  horizontalMouseSensitivity: 1.2
 --- !u!114 &159609611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11974,6 +11952,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 25866545}
   spriteToRotate: {fileID: 1552951593}
+  clownBack: {fileID: 2800000, guid: b58b8ef91df8e9847a57e0f81f487db3, type: 3}
+  clownFront: {fileID: 2800000, guid: d0987a45b9b907c4aad4448948f9baa0, type: 3}
+  clownSide: {fileID: 2800000, guid: c8f7b33c935a22f4da0cb23fe0bd097a, type: 3}
 --- !u!1001 &1813650365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13725,3 +13706,5 @@ SceneRoots:
   - {fileID: 927336852}
   - {fileID: 463792650}
   - {fileID: 1413816678}
+  - {fileID: 25866545}
+  - {fileID: 543580255}

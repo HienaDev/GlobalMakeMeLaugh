@@ -30,7 +30,7 @@ public class ClownPathFinding : MonoBehaviour
         // when we hear an audio, we go investigate....
         if (microphone){
             float loudness = detector.GetLoudnessFromMicrophone() * loudnessSensibility;
-            Debug.Log(loudness);
+            //Debug.Log(loudness);
             // if loudness > certain amount
                     // Investigate()
         }
