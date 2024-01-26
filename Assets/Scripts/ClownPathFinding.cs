@@ -49,6 +49,8 @@ public class ClownPathFinding : MonoBehaviour
             agent.SetDestination(target.position);
         }
 
+        //Debug.Log((int)Vector3.Distance(transform.position, target.position));
+
  
          if (Vector3.Distance(transform.position, target.position) > runningDistance && chasing)
          {
