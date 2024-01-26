@@ -31,11 +31,12 @@ public class ScaleFromAudioClip : MonoBehaviour
         else
             loudness = detector.GetLoudnessFromAudio(source.timeSamples, source.clip) * loudnessSensibility;
 
+        
         if (loudness < threshhold)
             loudness = 0;
-
         Debug.Log(loudness);
 
         transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);
+        
     }
 }

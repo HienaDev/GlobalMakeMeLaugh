@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107059262}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 276a1ae332fadb649865159a0ef1785f, type: 3}
   m_Name: 
@@ -720,10 +720,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 0}
   minScale: {x: 1, y: 1, z: 1}
-  maxScale: {x: 3, y: 3, z: 3}
+  maxScale: {x: 5, y: 5, z: 5}
   detector: {fileID: 1843252335}
-  loudnessSensibility: 100
-  threshhold: 0.1
+  loudnessSensibility: 1000
+  threshhold: 0
   microphone: 1
 --- !u!1 &832575517
 GameObject:
