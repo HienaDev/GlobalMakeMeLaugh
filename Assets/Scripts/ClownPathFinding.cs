@@ -7,15 +7,19 @@ public class ClownPathFinding : MonoBehaviour
 {
     [SerializeField] private float range; 
     [SerializeField] private Transform target; 
-    [SerializeField] private LayerMask layer;
+    [SerializeField] private float chaseDistance;
     private NavMeshAgent agent;
     private bool chasing;
     private bool investigating;
 
+    [SerializeField] private AudioDetecting detector;
     [SerializeField] private float runningDistance;
+    [SerializeField] private bool microphone;
+    [SerializeField] private float loudnessSensibility;
 
     void Start()
     {
+  
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
@@ -24,19 +28,20 @@ public class ClownPathFinding : MonoBehaviour
 
         // replace mouse click with when the audio happens
         // when we hear an audio, we go investigate....
+        if (microphone){
+            float loudness = detector.GetLoudnessFromMicrophone() * loudnessSensibility;
+            Debug.Log(loudness);
+            // if loudness > certain amount
+                    // Investigate()
+        }
         if(Input.GetMouseButtonDown(0)){
-            Debug.Log("heard the player! going to source of sound");
-            agent.SetDestination(target.position);
-
-            investigating = true;
+            Investigate();
         }
 
 
         // if player is nearby, time to chase!!!
-        if(Vector3.Distance(transform.position, target.position) < 5){
-            chasing = true;
-            investigating = false;
-            Debug.Log("chasing time");
+        if(Vector3.Distance(transform.position, target.position) < chaseDistance){
+            Chase();
         }
 
         if(chasing)
@@ -51,23 +56,40 @@ public class ClownPathFinding : MonoBehaviour
             chasing = false;
          }
 
-        // this is for random roaming, not chasing or investigating
+        // this is for random roaming
         if(agent.remainingDistance <= agent.stoppingDistance && !chasing){
-
 
             if(investigating){
                 Debug.Log("gonna stop investigating now");
                 investigating = false;
             }
 
-            Debug.Log("Going to choose a new random roam");
+            Roam();
+          
+        }
+    }
 
-            Vector3 point;
 
-            if(RandomPoint(agent.transform.position, range, out point)){
-                Debug.Log("New random roam location picked");
-                agent.SetDestination(point);
-            }
+    private void Investigate(){
+        Debug.Log("heard the player! going to source of sound");
+        agent.SetDestination(target.position);
+        investigating = true;
+    }
+
+    private void Chase(){
+        Debug.Log("chasing time");
+        chasing = true;
+        investigating = false;
+    }
+
+    private void Roam(){
+        Debug.Log("Going to choose a new random roam");
+
+        Vector3 point;
+
+        if(RandomPoint(agent.transform.position, range, out point)){
+            Debug.Log("New random roam location picked");
+            agent.SetDestination(point);
         }
     }
 
