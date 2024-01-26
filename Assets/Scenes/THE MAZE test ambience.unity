@@ -10411,7 +10411,6 @@ GameObject:
   - component: {fileID: 1552951597}
   - component: {fileID: 1552951596}
   - component: {fileID: 1552951595}
-  - component: {fileID: 1552951598}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -10506,19 +10505,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552951593}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1552951598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552951593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd39adeb1c19394cb4f3a3b3ae52390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 159609609}
 --- !u!4 &1559504739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3337843628724887407, guid: c4e85f95fe9a13248b99950d92bf1b9e,
@@ -11796,6 +11782,7 @@ GameObject:
   - component: {fileID: 1806721166}
   - component: {fileID: 1806721165}
   - component: {fileID: 1806721167}
+  - component: {fileID: 1806721168}
   m_Layer: 6
   m_Name: Clown
   m_TagString: Untagged
@@ -11902,6 +11889,20 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1806721168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806721162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd39adeb1c19394cb4f3a3b3ae52390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 25866545}
+  spriteToRotate: {fileID: 1552951593}
 --- !u!1001 &1813650365
 PrefabInstance:
   m_ObjectHideFlags: 0
