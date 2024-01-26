@@ -7,25 +7,24 @@ public class TurnToTarget : MonoBehaviour
 {
 
     [SerializeField] private Transform target;
+    [SerializeField] private GameObject spriteToRotate;
 
     private Vector3 angles;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
 
-        transform.LookAt(target);
+        spriteToRotate.transform.LookAt(target);
 
-        angles = transform.eulerAngles;
-        
+        angles = spriteToRotate.transform.eulerAngles;
 
-        transform.rotation = Quaternion.Euler(90, angles.y, 0);
+        spriteToRotate.transform.rotation = Quaternion.Euler(90, angles.y, 0);
     }
 }
