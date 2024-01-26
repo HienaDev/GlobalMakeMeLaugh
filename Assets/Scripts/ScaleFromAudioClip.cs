@@ -10,6 +10,13 @@ public class ScaleFromAudioClip : MonoBehaviour
     [SerializeField] private Vector3 maxScale;
     [SerializeField] private AudioDetecting detector;
 
+    [SerializeField] private float loudnessSensibility;
+    [SerializeField] private float threshhold;
+
+    [SerializeField] private bool microphone;
+
+    private float loudness;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +26,13 @@ public class ScaleFromAudioClip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float loudness = detector.GetLoudnessFromAudio(source.timeSamples, source.clip);
+        if (microphone)
+            loudness = detector.GetLoudnessFromMicrophone() * loudnessSensibility;
+        else
+            loudness = detector.GetLoudnessFromAudio(source.timeSamples, source.clip) * loudnessSensibility;
+
+        if (loudness < threshhold)
+            loudness = 0;
 
         transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);
     }

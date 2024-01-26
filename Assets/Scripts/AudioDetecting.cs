@@ -6,17 +6,41 @@ public class AudioDetecting : MonoBehaviour
 {
 
     [SerializeField] private int sampleWindow;
+    private AudioClip microphoneClip;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        MicrophoneToAudioClip();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void MicrophoneToAudioClip()
+    {
+        string microphoneName = Microphone.devices[0];
+
+        
+        foreach (var device in Microphone.devices)
+        {
+            Debug.Log(device);
+        }
+
+        //Debug.Log(microphoneName);
+
+        microphoneClip = Microphone.Start(microphoneName, true, 20, AudioSettings.outputSampleRate);
+
+
+    }
+
+    public float GetLoudnessFromMicrophone()
+    {
+        return GetLoudnessFromAudio(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
     }
 
     public float GetLoudnessFromAudio(int clipPosition, AudioClip clip)
