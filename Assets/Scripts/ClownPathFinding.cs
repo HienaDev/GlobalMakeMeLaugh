@@ -9,7 +9,9 @@ public class ClownPathFinding : MonoBehaviour
     [SerializeField] private Transform target; 
     private NavMeshAgent agent;
     private bool chasing;
-    
+
+    [SerializeField] private float runningDistance;
+
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -24,10 +26,29 @@ public class ClownPathFinding : MonoBehaviour
             chasing = true;
         }
 
+        if(chasing)
+        {
+            agent.SetDestination(target.position);
+        }
+
+        Debug.Log((int)Vector3.Distance(transform.position, target.position));
+
+ 
+         if (Vector3.Distance(transform.position, target.position) > runningDistance && chasing)
+         {
+            Debug.Log("stopped chasing");
+            chasing = false;
+         }
+
         // this is for random roaming
         if(agent.remainingDistance <= agent.stoppingDistance && !chasing){
+
+            Debug.Log("Stopped");
+
             Vector3 point;
+
             if(RandomPoint(agent.transform.position, range, out point)){
+                Debug.Log("New distance");
                 agent.SetDestination(point);
             }
         }
@@ -37,13 +58,14 @@ public class ClownPathFinding : MonoBehaviour
     private bool RandomPoint(Vector3 center, float range, out Vector3 result){
 
         Vector3 randomPoint = center + Random.insideUnitSphere * range;
-        UnityEngine.AI.NavMeshHit hit;
-        if(UnityEngine.AI.NavMesh.SamplePosition(randomPoint, out hit, 1.0f, UnityEngine.AI.NavMesh.AllAreas)){
-            result = hit.position;
-            return true;
-        }
 
-        result = Vector3.zero;
-        return false;
+
+        NavMeshHit hit; // NavMesh Sampling Info Container
+
+        // from randomPos find a nearest point on NavMesh surface in range of maxDistance
+        NavMesh.SamplePosition(randomPoint, out hit, range, NavMesh.AllAreas);
+
+        result = hit.position;
+        return true;
     }
 }
