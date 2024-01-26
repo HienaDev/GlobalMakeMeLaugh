@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
 
-    public float MoveSmoothTime;
-    public float GravityStrength;
-    public float JumpStrength;
-    public float WalkSpeed;
-    public float RunSpeed;
-    public float CrouchSpeed;
+    [SerializeField] private float MoveSmoothTime;
+    [SerializeField] private float GravityStrength;
+    [SerializeField] private float JumpStrength;
+    [SerializeField] private float WalkSpeed;
+    [SerializeField] private float RunSpeed;
+    [SerializeField] private float CrouchSpeed; //WorkInProgress
 
     private CharacterController Controller;
     private Vector3 CurrentMoveVelocity;

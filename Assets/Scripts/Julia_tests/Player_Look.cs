@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Player_Look : MonoBehaviour
 {
-    public Transform PlayerCamera;
-    public Vector2 Sensitivities;
+    [SerializeField] private Transform PlayerCamera;
+    [SerializeField] private Vector2 Sensitivities;
 
     private Vector2 XYRotation;
     // Start is called before the first frame update
