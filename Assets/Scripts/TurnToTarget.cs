@@ -114,7 +114,4 @@ public class TurnToTarget : MonoBehaviour
         return facingAway;
     }
 
-    public bool IsFacingAway(){
-        return facingAway;
-    }
 }
