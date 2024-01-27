@@ -27,14 +27,14 @@ public class LookAtStuff : MonoBehaviour
         {
 
 
-            if (hit.collider.gameObject.layer == bananaLayer)
-            {
+ 
                 if(Input.GetKey(KeyCode.E))
                 {
-                    bananaUI.SetActive(true);
-                    Destroy(hit.collider.gameObject);
+                    hit.collider.gameObject.GetComponent<Interactable>()?.Interact();
+                    //bananaUI.SetActive(true);
+                    //Destroy(hit.collider.gameObject);
                 }
-            }
+            
 
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
 
