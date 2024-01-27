@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8067442395537012319
+--- !u!1 &3159862876481346976
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4894945769874194165}
-  - component: {fileID: 402574450087460791}
-  - component: {fileID: 7240246191921565345}
-  - component: {fileID: 2856648949349218705}
-  - component: {fileID: 2383900431279455050}
-  - component: {fileID: 5995116175250668259}
-  - component: {fileID: 3992138968190442830}
-  - component: {fileID: 5031795760929575876}
-  m_Layer: 10
-  m_Name: Banana
+  - component: {fileID: 2808425574761587646}
+  - component: {fileID: 4781771955888288244}
+  - component: {fileID: 2411458068904770389}
+  - component: {fileID: 8326974536734322285}
+  - component: {fileID: 858096031474866224}
+  - component: {fileID: 6513498075660348442}
+  - component: {fileID: 3117985750247176197}
+  m_Layer: 0
+  m_Name: BananaThrown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4894945769874194165
+--- !u!4 &2808425574761587646
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
+  m_GameObject: {fileID: 3159862876481346976}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 3.82}
+  m_LocalPosition: {x: -3.06, y: 1, z: 3.82}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &402574450087460791
+--- !u!33 &4781771955888288244
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
+  m_GameObject: {fileID: 3159862876481346976}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7240246191921565345
+--- !u!23 &2411458068904770389
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
+  m_GameObject: {fileID: 3159862876481346976}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -66,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b8cdd1f85101c44d8af6162739e9b7b, type: 2}
+  - {fileID: 2100000, guid: 2c4696bf924ef7445961778bfc28a175, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,26 +87,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2856648949349218705
+--- !u!114 &8326974536734322285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
+  m_GameObject: {fileID: 3159862876481346976}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93709d0929e837747abb8198824bebdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &2383900431279455050
+--- !u!135 &858096031474866224
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
-  m_Material: {fileID: 0}
+  m_GameObject: {fileID: 3159862876481346976}
+  m_Material: {fileID: 13400000, guid: ba7d2f76350f7f34a945c62e0eb8a089, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -115,60 +114,53 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 5.000001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5995116175250668259
+--- !u!54 &6513498075660348442
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159862876481346976}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3117985750247176197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
+  m_GameObject: {fileID: 3159862876481346976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a72b23e21c7c20948832979b03d59b9e, type: 3}
+  m_Script: {fileID: 11500000, guid: c54ba4e239cb633458d6b011455bf4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3992138968190442830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa4547747e9378846b0ee2570d86cbcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interact:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5031795760929575876}
-        m_TargetAssemblyTypeName: BananaInteract, Assembly-CSharp
-        m_MethodName: BananaUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5031795760929575876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d608f772ba40bfb41a3034be870e61bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  floorBanana: {fileID: 8067442395537012319, guid: 357602c0f3ed35c468368eac2789ae7b,
+    type: 3}
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 2048

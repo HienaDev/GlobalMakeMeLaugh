@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class TurnToTargetGeneral : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    private Transform target;
 
     private Vector3 angles;
+
+    private void Start()
+    {
+        target = GameManager.instance.Player.GetComponent<Transform>();
+    }
 
     // Update is called once per frame
     void Update()
