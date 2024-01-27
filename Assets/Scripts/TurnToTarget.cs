@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class TurnToTarget : MonoBehaviour
 {
 
-    [SerializeField] private Transform target;
+    private Transform target;
     [SerializeField] private GameObject spriteToRotate;
 
     [SerializeField] private Texture clownBack;
@@ -28,6 +28,7 @@ public class TurnToTarget : MonoBehaviour
     void Start()
     {
         material = spriteToRotate.GetComponent<Renderer>().material;
+        target = GameManager.instance.Player.transform;
     }
 
     // Update is called once per frame

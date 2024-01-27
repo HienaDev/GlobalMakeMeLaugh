@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class ClownBehaviour : MonoBehaviour
 {
     [SerializeField] private float range; // range used to choose new random location 
-    [SerializeField] private Transform target; // player 
+    private Transform target; // player 
 
     private NavMeshAgent agent;
     private bool chasing;
@@ -32,6 +33,8 @@ public class ClownBehaviour : MonoBehaviour
         startState.NextState(midState, clownData[0]);
         midState.NextState(finalState, clownData[1]);
         finalState.NextState(null, clownData[2]);
+
+        target = GameManager.instance.Player.transform;
 
         currentState = startState;
         startState.Enter(this);

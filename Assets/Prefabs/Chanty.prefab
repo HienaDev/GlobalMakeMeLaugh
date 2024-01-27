@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4020039511220327889}
   - component: {fileID: 793410376016626246}
   - component: {fileID: 6943461054980414669}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Chanty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
