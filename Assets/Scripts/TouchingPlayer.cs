@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class TouchingPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private bool playerToggle = false;
 
+    public bool PlayerToggle { get => playerToggle; }
+    
     private void OnTriggerEnter(Collider other)
     {
-        
+        playerToggle = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        
+        playerToggle = false;
     }
 }

@@ -56,11 +56,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateRotation()
     {
+
+        UpdatePlayerRotation();
+        UpdateHeadRotation();
+        Move();
+
         if (moving)
         {
-            UpdatePlayerRotation();
-            UpdateHeadRotation();
-            Move();
+            
         }
         else
             hasSpeed = false;
@@ -100,6 +103,12 @@ public class PlayerMovement : MonoBehaviour
         {
             x *= speedShiftScale;
             z *= speedShiftScale;
+        }
+
+        if(!moving)
+        {
+            x = 0;
+            z = 0;
         }
 
         if (x != 0 || z != 0)
