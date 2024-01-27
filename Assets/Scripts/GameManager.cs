@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject chantyUI;
     public GameObject ChantyUI { get { return chantyUI; } }
 
+    [SerializeField] private GameObject runningUI;
+    public GameObject RunningUI { get { return runningUI; } }
+
     // Start is called before the first frame update
     void Start()
     {

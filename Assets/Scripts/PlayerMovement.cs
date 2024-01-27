@@ -103,12 +103,18 @@ public class PlayerMovement : MonoBehaviour
         {
             x *= speedShiftScale;
             z *= speedShiftScale;
+            GameManager.instance.RunningUI.SetActive(true);
+        }
+        else
+        {
+            GameManager.instance.RunningUI.SetActive(false);
         }
 
         if(!moving)
         {
             x = 0;
             z = 0;
+            GameManager.instance.RunningUI.SetActive(false);
         }
 
         if (x != 0 || z != 0)
