@@ -26,9 +26,9 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] private AudioMixerGroup waterPistolMixer;
 
 
-    //[SerializeField] private AudioClip[] jump;
-    //private AudioSource audioSourceJump;
-    //[SerializeField] private AudioMixerGroup jumpMixer;
+    [SerializeField] private AudioClip[] slip;
+    private AudioSource audioSourceSlip;
+    [SerializeField] private AudioMixerGroup slipMixer;
 
     [SerializeField] private AudioClip[] steps;
     private AudioSource audioSourceSteps;
@@ -70,9 +70,9 @@ public class PlayerSounds : MonoBehaviour
         audioSourceWaterPistol.outputAudioMixerGroup = waterPistolMixer;
         audioSourceWaterPistol.spatialBlend = 1;
 
-        //audioSourceJump = gameObject.AddComponent<AudioSource>();
-        //audioSourceJump.outputAudioMixerGroup = jumpMixer;
-        //audioSourceJump.spatialBlend = 1;
+        audioSourceSlip = gameObject.AddComponent<AudioSource>();
+        audioSourceSlip.outputAudioMixerGroup = slipMixer;
+        audioSourceSlip.spatialBlend = 1;
 
         audioSourceSteps = gameObject.AddComponent<AudioSource>();
         audioSourceSteps.outputAudioMixerGroup = stepsMixer;
@@ -138,20 +138,20 @@ public class PlayerSounds : MonoBehaviour
         audioSourceWaterPistol.Play();
     }
 
-    //public void PlayJumpSound()
-    //{
-    //    audioSourceJump.clip = jump[Random.Range(0, jump.Length)];
+    public void PlaySlipSound()
+    {
+        audioSourceSlip.clip = slip[Random.Range(0, slip.Length)];
 
-    //    audioSourceJump.pitch = Random.Range(0.95f, 1.05f);
+        audioSourceSlip.pitch = Random.Range(0.95f, 1.05f);
 
-    //    audioSourceJump.Play();
-    //}
+        audioSourceSlip.Play();
+    }
 
     public void PlayStepsSound()
     {
         audioSourceSteps.clip = steps[Random.Range(0, steps.Length)];
 
-        audioSourceSteps.pitch = Random.Range(0.8f, 1.2f);
+        audioSourceSteps.pitch = Random.Range(1.3f, 1.5f);
 
         audioSourceSteps.Play();
     }

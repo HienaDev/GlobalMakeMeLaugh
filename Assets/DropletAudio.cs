@@ -16,7 +16,7 @@ public class DropletAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dropletObject = GetComponent<Droplet>().gameObject;
+        dropletObject = GetComponentInChildren<Droplet>().gameObject;
 
         audioSourceDroplet = dropletObject.AddComponent<AudioSource>();
         audioSourceDroplet.outputAudioMixerGroup = dropletMixer;
