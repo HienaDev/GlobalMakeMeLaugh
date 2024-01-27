@@ -15,6 +15,8 @@ public class TurnToTarget : MonoBehaviour
     [SerializeField] private Texture clownSideLeft;
     [SerializeField] private Texture clownSideRight;
 
+    private bool facingAway;
+
 
     private Material material;
 
@@ -59,10 +61,12 @@ public class TurnToTarget : MonoBehaviour
         if(direction < 45)
         {
             material.SetTexture("_BaseMap", clownBack);
+            facingAway = true;
         }
         else if (direction > 135)
         {
             material.SetTexture("_BaseMap", clownFront);
+            facingAway = false;
         }
         else
         {
@@ -70,6 +74,7 @@ public class TurnToTarget : MonoBehaviour
                 material.SetTexture("_BaseMap", clownSideLeft);
             else
                 material.SetTexture("_BaseMap", clownSideRight);
+            facingAway = false;
         }
 
 
@@ -104,4 +109,9 @@ public class TurnToTarget : MonoBehaviour
         //    material.SetTexture("_BaseMap", clownSideLeft);
         //}
     }
+
+    public bool IsFacingAway(){
+        return facingAway;
+    }
+
 }
