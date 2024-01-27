@@ -7,14 +7,11 @@ public class LookAtStuff : MonoBehaviour
 {
 
     [SerializeField] private float sightRange;
-    private int bananaLayer;
 
-    [SerializeField] private GameObject bananaUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        bananaLayer = LayerMask.NameToLayer("Banana");
     }
 
     // Update is called once per frame
@@ -31,8 +28,7 @@ public class LookAtStuff : MonoBehaviour
                 if(Input.GetKey(KeyCode.E))
                 {
                     hit.collider.gameObject.GetComponent<Interactable>()?.Interact();
-                    //bananaUI.SetActive(true);
-                    //Destroy(hit.collider.gameObject);
+
                 }
             
 
