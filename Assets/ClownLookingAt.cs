@@ -12,9 +12,12 @@ public class ClownLookingAt : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
     private int playerLayer;
 
+    private ClownBehaviour clownBehaviour;
+
     private void Start()
     {
         playerLayer = LayerMask.NameToLayer("Player");
+        clownBehaviour = GetComponent<ClownBehaviour>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,8 @@ public class ClownLookingAt : MonoBehaviour
                 {
                     Debug.DrawRay(eye.transform.position, eye.transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
                     Debug.Log("FOUND PLAYER");
+                    // chase
+                    clownBehaviour.ChasePlayer();
                 }
                 else
                     Debug.DrawRay(eye.transform.position, eye.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);

@@ -14,6 +14,8 @@ public class TurnToTarget : MonoBehaviour
     [SerializeField] private Texture clownFront;
     [SerializeField] private Texture clownSide;
 
+    private bool facingAway;
+
 
     private Material material;
 
@@ -47,19 +49,26 @@ public class TurnToTarget : MonoBehaviour
     {
         float direction = Vector3.Angle(transform.forward, transform.position - target.position);
 
-        Debug.Log("Angle direction: " + direction);
+        //Debug.Log("Angle direction: " + direction);
 
         if(direction < 45)
         {
             material.SetTexture("_BaseMap", clownBack);
+            facingAway = true;
         }
         else if (direction > 135)
         {
             material.SetTexture("_BaseMap", clownFront);
+            facingAway = false;
         }
         else
         {
             material.SetTexture("_BaseMap", clownSide);
+            facingAway = false;
         }
+    }
+
+    public bool IsFacingAway(){
+        return facingAway;
     }
 }
