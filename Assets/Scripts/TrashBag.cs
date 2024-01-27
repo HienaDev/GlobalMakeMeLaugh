@@ -38,6 +38,10 @@ public class TrashBag : MonoBehaviour
         }
     }
 
+    private IEnumerator InteractionTimer(){
+        yield return 0;
+    }
+
     private void OnCollisionEnter(Collision other) {
         inRange = true;
     }
