@@ -15,7 +15,7 @@ public class ClownBehaviour : MonoBehaviour
 
     [SerializeField] private AudioDetecting detector;
     [SerializeField] List<ClownData> clownData = new List<ClownData>();
-    [SerializeField] private CameraShake cameraShake;
+    //[SerializeField] private CameraShake cameraShake;
 
     private IClownState currentState;
 
