@@ -6,7 +6,6 @@ public class ThrowBanana : MonoBehaviour
 {
 
     [SerializeField] private GameObject banana;
-    [SerializeField] private GameObject instantiateManager;
     [SerializeField] private GameObject firePoint;
 
     [SerializeField] private float strenght;

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class MicrowaveInteract : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Microwave()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (GameManager.instance.ChantyUI.activeSelf &&
+            GameManager.instance.EggUI.activeSelf &&
+            GameManager.instance.FlourUI.activeSelf)
+        {
+            Debug.Log("PIE IN THE MAKING!!!");
+        }
     }
 }
