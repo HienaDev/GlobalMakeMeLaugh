@@ -20,11 +20,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject bananaUI;
     public GameObject BananaUI { get { return bananaUI; } }
 
+
+
     [SerializeField] private GameObject player;
     public GameObject Player { get { return player; } }
 
+
+
     [SerializeField] private GameObject instantiateManager;
     public GameObject InstantiateManager { get { return instantiateManager; } }
+
+    [SerializeField] private GameObject eggUI;
+    public GameObject EggUI { get { return eggUI; } }
+
+    [SerializeField] private GameObject flourUI;
+    public GameObject FlourUI { get { return flourUI; } }
+
+    [SerializeField] private GameObject chantyUI;
+    public GameObject ChantyUI { get { return chantyUI; } }
 
     // Start is called before the first frame update
     void Start()
@@ -39,4 +52,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void ToggleBananaUI() => bananaUI.SetActive(!bananaUI.activeSelf);
+
+    public void ToggleEggUI() => eggUI.SetActive(!eggUI.activeSelf);
+
+    public void ToggleChantyUI() => chantyUI.SetActive(!chantyUI.activeSelf);
+
+    public void ToggleFlourUI() => flourUI.SetActive(!flourUI.activeSelf);
 }
