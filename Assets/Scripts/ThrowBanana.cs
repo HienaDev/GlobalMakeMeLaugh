@@ -10,10 +10,12 @@ public class ThrowBanana : MonoBehaviour
 
     [SerializeField] private float strenght;
 
+    [SerializeField] private PlayerSounds playerSounds;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerSounds = GetComponent<PlayerSounds>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,9 @@ public class ThrowBanana : MonoBehaviour
             if (GameManager.instance.BananaUI.activeSelf)
             {
                 BananaThrow();
+
+                playerSounds.PlayThrowSoundSound();
+
                 GameManager.instance.ToggleBananaUI();
             }
         }
