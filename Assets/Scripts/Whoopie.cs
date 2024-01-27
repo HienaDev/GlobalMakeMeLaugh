@@ -10,7 +10,7 @@ public class Whoopie : MonoBehaviour
     [SerializeField] private GameObject closeUp;
     [SerializeField] private GameObject farAway;
     [SerializeField] private GameObject deflated;
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private float switchVisualDistance;
     [SerializeField] private float deactivatedTimer;
 
@@ -24,6 +24,8 @@ public class Whoopie : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         //material = GetComponent<Renderer>().material;
         turning = GetComponent<TurnToTargetGeneral>();
+
+        player = GameManager.instance.Player.transform;
     }
 
     // Update is called once per frame
