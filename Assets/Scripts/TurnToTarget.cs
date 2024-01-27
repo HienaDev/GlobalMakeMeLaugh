@@ -54,9 +54,9 @@ public class TurnToTarget : MonoBehaviour
         float directionClown = Mathf.Atan2(transform.forward.z, transform.forward.x);
         //Debug.Log("Direction: " + direction);
         //Debug.Log("Direction clown: " + (Mathf.Rad2Deg * (directionClown)));
-        Debug.Log("Direction clown - player" + (Mathf.Rad2Deg * (directionClown - Mathf.Abs(directionPlayer))));
+        //Debug.Log("Direction clown - player" + (Mathf.Rad2Deg * (directionClown - Mathf.Abs(directionPlayer))));
 
-        Debug.Log("Player direction: " + directionPlayer * Mathf.Rad2Deg);
+        //Debug.Log("Player direction: " + directionPlayer * Mathf.Rad2Deg);
 
         if(direction < 45)
         {

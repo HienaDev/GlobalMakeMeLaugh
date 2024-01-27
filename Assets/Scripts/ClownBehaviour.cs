@@ -15,7 +15,7 @@ public class ClownBehaviour : MonoBehaviour
 
     [SerializeField] private AudioDetecting detector;
     [SerializeField] List<ClownData> clownData = new List<ClownData>();
-    [SerializeField] private CameraShake cameraShake;
+    //[SerializeField] private CameraShake cameraShake;
 
     private IClownState currentState;
 
@@ -58,7 +58,7 @@ public class ClownBehaviour : MonoBehaviour
 
 
     public void Shake(){
-        StartCoroutine(cameraShake.Shake(.5f, 1f));
+        //StartCoroutine(cameraShake.Shake(.5f, 1f));
     }
 
     public bool IsChasing(){
