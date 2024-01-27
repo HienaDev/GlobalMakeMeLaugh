@@ -58,7 +58,7 @@ public class ClownBehaviour : MonoBehaviour
 
 
     public void Shake(){
-        StartCoroutine(cameraShake.Shake(.5f, 1f));
+        //StartCoroutine(cameraShake.Shake(.5f, 1f));
     }
 
     public bool IsChasing(){
