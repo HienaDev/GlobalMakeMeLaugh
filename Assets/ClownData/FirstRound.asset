@@ -16,3 +16,4 @@ MonoBehaviour:
   roamSpeed: 6
   chaseSpeed: 10
   playerDetectionThreshold: 20
+  dashSpeed: 50

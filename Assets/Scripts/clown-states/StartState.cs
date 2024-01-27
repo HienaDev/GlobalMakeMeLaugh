@@ -8,7 +8,6 @@ public class StartState : IClownState {
 	private IClownState nextState;
 	private bool pressed;
 	private ClownData clownData;
-	private bool tickled;
 
 	public override void Enter(ClownBehaviour clownBehaviour){
 		Debug.Log("Entering starting state!");
@@ -17,11 +16,9 @@ public class StartState : IClownState {
 	}
 
 	public override IClownState Transition(ClownBehaviour clownBehaviour){
-		if (tickled){
+		if (clownBehaviour.damaged){
 			// reset damage for next round
 			clownBehaviour.damaged = false;
-
-			// trigger tickle animation here!
 			return nextState;
 		}
 
@@ -31,7 +28,13 @@ public class StartState : IClownState {
 	public override void Update(ClownBehaviour clownBehaviour){
 
 		if(clownBehaviour.damaged){
-			tickled = true;
+			// make clown laugh
+			// mad dash away
+			// ui of (I won't fall for that again...)
+			Debug.Log("ow! been tickled! running awaaaaay!");
+			clownBehaviour.dashing = true;
+			clownBehaviour.GetNavAgent().speed = clownData.dashSpeed;
+			clownBehaviour.Dash();
 			return;
 		}
 
@@ -52,6 +55,7 @@ public class StartState : IClownState {
 
 			if (Vector3.Distance(clownBehaviour.gameObject.transform.position, clownBehaviour.GetPlayerPosition().position) > clownData.chaseThreshold)
 			{
+				clownBehaviour.GetNavAgent().speed = clownData.roamSpeed;
 				clownBehaviour.Roam();
 				return;
 			}
@@ -60,6 +64,12 @@ public class StartState : IClownState {
 		// this is for random roaming
 		if(clownBehaviour.GetNavAgent().remainingDistance <= clownBehaviour.GetNavAgent().stoppingDistance && !clownBehaviour.IsChasing())
 		{
+
+			if(clownBehaviour.dashing){
+				Debug.Log("no more dashing");
+				clownBehaviour.dashing = false;
+				clownBehaviour.GetNavAgent().speed = clownData.roamSpeed;
+			}
 			clownBehaviour.Roam();
 		}
 

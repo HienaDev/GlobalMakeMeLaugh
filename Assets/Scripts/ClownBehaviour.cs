@@ -12,27 +12,37 @@ public class ClownBehaviour : MonoBehaviour
     private NavMeshAgent agent;
     private bool chasing;
     private bool investigating;
+    public bool dashing { get; set;}
     public bool damaged { get; set;}
+    public bool beenTickled {get; set;}
 
+    private bool inRange;
+    private TickleBehaviour tickleBehaviour;
+
+
+    [SerializeField] private GameObject tickleUI;
     [SerializeField] private AudioDetecting detector;
     [SerializeField] List<ClownData> clownData = new List<ClownData>();
     //[SerializeField] private CameraShake cameraShake;
 
     private IClownState currentState;
+    private TurnToTarget turnToTarget;
 
     void Start()
     {
   
+        turnToTarget = GetComponent<TurnToTarget>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        tickleBehaviour = GetComponentInChildren<TickleBehaviour>();
 
         // create initial states here
         StartState startState = new StartState();
-        MidState midState = new MidState();
-        FinalState finalState = new FinalState();
+        //MidState midState = new MidState();
+        //FinalState finalState = new FinalState();
 
-        startState.NextState(midState, clownData[0]);
-        midState.NextState(finalState, clownData[1]);
-        finalState.NextState(null, clownData[2]);
+        startState.NextState(startState, clownData[0]);
+        //midState.NextState(finalState, clownData[1]);
+        //finalState.NextState(null, clownData[2]);
 
         target = GameManager.instance.Player.transform;
 
@@ -43,6 +53,21 @@ public class ClownBehaviour : MonoBehaviour
 
     void Update()
     {
+
+        if(!beenTickled && tickleBehaviour.inRange && turnToTarget.IsFacingAway()){
+            tickleUI.SetActive(true);
+        }
+
+        if(!beenTickled && !tickleBehaviour.inRange){
+            tickleUI.SetActive(false);
+        }
+
+        if(Input.GetKey(KeyCode.E) && tickleUI.activeInHierarchy){
+            Debug.Log("tickle tiiiiime!!!");
+            damaged = true;
+        }
+
+
 
         currentState.Update(this);
         IClownState clownState = currentState.Transition(this);
@@ -92,6 +117,13 @@ public class ClownBehaviour : MonoBehaviour
         investigating = true;
     }
 
+    public void Dash(){
+        Debug.Log("run away!");
+        dashing = true;
+        chasing = false;
+        investigating = false;
+    }
+
     public void Roam(){
         Debug.Log("Going to choose a new random roam");
         chasing = false;
@@ -99,7 +131,12 @@ public class ClownBehaviour : MonoBehaviour
 
         Vector3 point;
 
-        if(RandomPoint(agent.transform.position, range, out point)){
+        if(dashing){
+            if(RandomPoint(agent.transform.position, 300, out point)){
+            Debug.Log("New dash location");
+            agent.SetDestination(point);
+            }
+        } else if(RandomPoint(agent.transform.position, range, out point)){
             Debug.Log("New random roam location picked");
             agent.SetDestination(point);
         }
@@ -119,4 +156,7 @@ public class ClownBehaviour : MonoBehaviour
         result = hit.position;
         return true;
     }
+
+
+
 }
