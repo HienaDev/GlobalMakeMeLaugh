@@ -12,7 +12,8 @@ public class TurnToTarget : MonoBehaviour
 
     [SerializeField] private Texture clownBack;
     [SerializeField] private Texture clownFront;
-    [SerializeField] private Texture clownSide;
+    [SerializeField] private Texture clownSideLeft;
+    [SerializeField] private Texture clownSideRight;
 
     private bool facingAway;
 
@@ -49,7 +50,13 @@ public class TurnToTarget : MonoBehaviour
     {
         float direction = Vector3.Angle(transform.forward, transform.position - target.position);
 
-        //Debug.Log("Angle direction: " + direction);
+        float directionPlayer = Mathf.Atan2(target.transform.forward.z, target.transform.forward.x);
+        float directionClown = Mathf.Atan2(transform.forward.z, transform.forward.x);
+        //Debug.Log("Direction: " + direction);
+        //Debug.Log("Direction clown: " + (Mathf.Rad2Deg * (directionClown)));
+        Debug.Log("Direction clown - player" + (Mathf.Rad2Deg * (directionClown - Mathf.Abs(directionPlayer))));
+
+        Debug.Log("Player direction: " + directionPlayer * Mathf.Rad2Deg);
 
         if(direction < 45)
         {
@@ -63,9 +70,48 @@ public class TurnToTarget : MonoBehaviour
         }
         else
         {
-            material.SetTexture("_BaseMap", clownSide);
+            if ((Mathf.Rad2Deg * (Mathf.Abs(directionPlayer)) > 50 ))
+                material.SetTexture("_BaseMap", clownSideLeft);
+            else
+                material.SetTexture("_BaseMap", clownSideRight);
             facingAway = false;
         }
+
+
+
+        //float direction = Vector3.Angle(transform.forward, transform.position - target.position);
+
+
+        //float directionClown = Mathf.Atan2(transform.forward.z, transform.forward.x);
+        //float directionPlayer = Mathf.Atan2(target.transform.forward.z, target.transform.forward.x);
+
+        //Debug.Log("Direction clown: " + (Mathf.Rad2Deg * directionClown));
+        ////Debug.Log("Direction player: " + (Mathf.Rad2Deg * directionPlayer));
+        //direction = Mathf.Abs(((directionClown - directionPlayer) * Mathf.Rad2Deg));
+        ////Debug.Log("Direction: " + direction);
+
+        ////Debug.Log("Angle direction: " + direction);
+
+        //if (direction < 45 || direction >= 315)
+        //{
+        //    material.SetTexture("_BaseMap", clownBack);
+        //}
+        //else if (direction >= 45 && direction < 135)
+        //{
+        //    material.SetTexture("_BaseMap", clownSideRight);
+        //}
+        //else if (direction >= 135 && direction < 225)
+        //{
+        //    material.SetTexture("_BaseMap", clownFront);
+        //}
+        //else if (direction >= 225 && direction < 315)
+        //{
+        //    material.SetTexture("_BaseMap", clownSideLeft);
+        //}
+    }
+
+    public bool IsFacingAway(){
+        return facingAway;
     }
 
     public bool IsFacingAway(){
