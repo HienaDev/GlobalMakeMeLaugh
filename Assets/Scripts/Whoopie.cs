@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Whoopie : MonoBehaviour
 {
-
-    private AudioSource audioSource;
-
     [SerializeField] private GameObject closeUp;
     [SerializeField] private GameObject farAway;
     [SerializeField] private GameObject deflated;
     private Transform player;
     [SerializeField] private float switchVisualDistance;
     [SerializeField] private float deactivatedTimer;
+
+    private FartSound fartSound;
 
     private TurnToTargetGeneral turning;
     private bool isActive = true;
@@ -21,9 +20,10 @@ public class Whoopie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         //material = GetComponent<Renderer>().material;
         turning = GetComponent<TurnToTargetGeneral>();
+
+        fartSound = GetComponent<FartSound>();
 
         player = GameManager.instance.Player.transform;
     }
@@ -63,10 +63,13 @@ public class Whoopie : MonoBehaviour
         Debug.Log("stepped on cushion!");
         if(isActive){
             Debug.Log("farting");
-            audioSource.Play(0);
+
+            fartSound.PlayFartSound();
+
             isActive = false;
             closeUp.SetActive(false);
             deflated.SetActive(true);
+
             StartCoroutine(StartTimer());
 
         }

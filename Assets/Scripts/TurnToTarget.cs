@@ -34,7 +34,6 @@ public class TurnToTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         RotateSprite();
         UpdateSprite();
     }
