@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6756610904269736785}
-  - component: {fileID: 1081437620599812253}
   - component: {fileID: 6586720074817979833}
   - component: {fileID: 659455184421736414}
   - component: {fileID: 1301916188559868438}
@@ -17,6 +16,7 @@ GameObject:
   - component: {fileID: 3929453213342441498}
   - component: {fileID: 4610724526404436464}
   - component: {fileID: 3703492023427225265}
+  - component: {fileID: 8219246930683887774}
   m_Layer: 12
   m_Name: Microwave
   m_TagString: Untagged
@@ -32,25 +32,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6323767050258238875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 11.01, y: 4.2, z: 3.82}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.13}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1081437620599812253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6323767050258238875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93709d0929e837747abb8198824bebdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!135 &6586720074817979833
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -70,7 +58,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5.000001
+  m_Radius: 26.68
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &659455184421736414
 MonoBehaviour:
@@ -196,7 +184,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0cf2d5238e595d84b892afadc1167999, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -290,5 +278,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6a8553db0638724f822869f20726889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open:
+  - {fileID: 8300000, guid: 56e54c89e5ad03442b052a62c1a8a3c6, type: 3}
+  openMixer: {fileID: -8843132749958609605, guid: 749080eca2d9753449e88acc91ba4931,
+    type: 2}
+  ding:
+  - {fileID: 8300000, guid: 7e68c3b2d713a694dbf301a35d06d440, type: 3}
+  dingMixer: {fileID: -8843132749958609605, guid: 749080eca2d9753449e88acc91ba4931,
+    type: 2}
+  audioON: {fileID: 4610724526404436464}
+--- !u!114 &8219246930683887774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323767050258238875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe3a143133c4d1469297b2add874373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
