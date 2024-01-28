@@ -1,40 +1,23 @@
 using UnityEngine;
 
-public class StartState : IClownState {
 
-	// clown is slower to roam and gives up on chasing sooner
-	// can be tickled
-
-	private IClownState nextState;
-	private bool pressed;
+public class ClownPatrol 
+{
 	private ClownData clownData;
+	private ClownBehaviour clownBehaviour;
 
-	public override void Enter(ClownBehaviour clownBehaviour){
-		Debug.Log("Entering starting state!");
+	public void Enter(ClownBehaviour clownBehaviour, ClownData clownData){
+		this.clownData = clownData;
+		this.clownBehaviour = clownBehaviour;
 		clownBehaviour.Roam();
 		clownBehaviour.GetNavAgent().speed = clownData.roamSpeed;
 	}
 
-	public override IClownState Transition(ClownBehaviour clownBehaviour){
-		if (clownBehaviour.damaged){
-			// reset damage for next round
-			clownBehaviour.damaged = false;
-			return nextState;
-		}
 
-		return this;
-	}
-
-	public override void Update(ClownBehaviour clownBehaviour){
+	public void Update(){
 
 		if(clownBehaviour.damaged){
-			// make clown laugh
-			// mad dash away
-			// ui of (I won't fall for that again...)
-			Debug.Log("ow! been tickled! running awaaaaay!");
-			//clownBehaviour.dashing = true;
-			//clownBehaviour.GetNavAgent().speed = clownData.dashSpeed;
-			//clownBehaviour.Dash();
+			Debug.Log("ow! running awaaaaay!");
 			return;
 		}
 
@@ -69,15 +52,11 @@ public class StartState : IClownState {
 				Debug.Log("no more dashing");
 				clownBehaviour.dashing = false;
 				clownBehaviour.GetNavAgent().speed = clownData.roamSpeed;
+				clownBehaviour.DisplayWarning();
 			}
 			clownBehaviour.Roam();
 		}
 
-	}
-
-	public override void NextState(IClownState clownState, ClownData clownData){
-		this.nextState = clownState;
-		this.clownData = clownData;
 	}
 
 
