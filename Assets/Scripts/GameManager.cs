@@ -56,6 +56,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pieUI;
     public GameObject PieUI { get {return pieUI; }}
 
+
+    [SerializeField] private GameObject warningUI;
+    public GameObject WarningUI { get { return warningUI; }}
+
+
+    [SerializeField] private GameObject tickleUI;
+    public GameObject TickleUI { get {return tickleUI; }}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,4 +85,8 @@ public class GameManager : MonoBehaviour
     public void ToggleChantyUI() => chantyUI.SetActive(!chantyUI.activeSelf);
 
     public void ToggleFlourUI() => flourUI.SetActive(!flourUI.activeSelf);
+
+    public void ToggleTickleUI() => tickleUI.SetActive(!tickleUI.activeSelf);
+
+    public void ToggleWarningUI() => warningUI.SetActive(!warningUI.activeSelf);
 }

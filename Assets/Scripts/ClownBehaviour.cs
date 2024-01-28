@@ -33,10 +33,6 @@ public class ClownBehaviour : MonoBehaviour
     [SerializeField] private GameObject laughingAnim;
     [SerializeField] private GameObject idleAnim;
     [SerializeField] private float seeDistance;
-
-    [SerializeField] private GameObject warningUI;
-
-    [SerializeField] private GameObject tickleUI;
     [SerializeField] private ClownData clownData;
 
     private TurnToTarget turnToTarget;
@@ -68,14 +64,14 @@ public class ClownBehaviour : MonoBehaviour
         }
 
         if(!beenTickled && tickleBehaviour.inRange && turnToTarget.IsFacingAway()){
-            tickleUI.SetActive(true);
+            GameManager.instance.TickleUI.SetActive(true);
         }
 
         if(!tickleBehaviour.inRange){
-            tickleUI.SetActive(false);
+            GameManager.instance.TickleUI.SetActive(false);
         }
 
-        if(Input.GetKey(KeyCode.E) && tickleUI.activeInHierarchy){
+        if(Input.GetKey(KeyCode.E) && GameManager.instance.TickleUI.activeInHierarchy){
             Debug.Log("tickle tiiiiime!!!");
             DamageClown();
             beenTickled = true;
@@ -152,8 +148,8 @@ public class ClownBehaviour : MonoBehaviour
         //agent.speed = clownData.dashSpeed;
         //Dash();
         clownSpawn.SpawnAtRandomPoint();
-        warningUI.SetActive(true);
-        StartCoroutine(DeactivateAfterComplete(2f, warningUI));
+        GameManager.instance.WarningUI.SetActive(true);
+        StartCoroutine(DeactivateAfterComplete(2f, GameManager.instance.WarningUI));
         agent.speed = clownData.roamSpeed;
     }
 
@@ -210,8 +206,8 @@ public class ClownBehaviour : MonoBehaviour
 
     public void DisplayWarning(){
 
-        warningUI.SetActive(true);
-        StartCoroutine(DeactivateAfterComplete(2f, warningUI));
+        GameManager.instance.WarningUI.SetActive(true);
+        StartCoroutine(DeactivateAfterComplete(2f, GameManager.instance.WarningUI));
 
     }
 
