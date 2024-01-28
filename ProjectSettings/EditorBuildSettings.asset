@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Epic_Menu.unity
+    guid: 65d5c46407f87524db46187c03fc7883
+  - enabled: 1
     path: Assets/Scenes/Mapinha_MAZE.unity
     guid: cdc76041dc5c86440a80412cbd3726d7
   m_configObjects: {}

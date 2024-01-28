@@ -6,63 +6,157 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ClownBehaviour : MonoBehaviour
 {
+
+
     [SerializeField] private float range; // range used to choose new random location 
     private Transform target; // player 
+
+    public bool seePlayer {get; set;}
 
     private NavMeshAgent agent;
     private bool chasing;
     private bool investigating;
+    public bool dashing { get; set;}
     public bool damaged { get; set;}
 
-    [SerializeField] private AudioDetecting detector;
-    [SerializeField] List<ClownData> clownData = new List<ClownData>();
-    //[SerializeField] private CameraShake cameraShake;
 
-    private IClownState currentState;
+    // POSSIBLE WAYS TO MAKE HIM LAUGH
+    public bool beenTickled {get; set;}
+    public bool beenCaked {get; set;}
+    public bool beenBananad {get; set;}
+
+    private bool inRange;
+    private TickleBehaviour tickleBehaviour;
+    private bool animComplete = false;
+    private bool animating = false;
+
+    [SerializeField] private GameObject laughingAnim;
+    [SerializeField] private GameObject idleAnim;
+    [SerializeField] private float seeDistance;
+
+    [SerializeField] private GameObject warningUI;
+
+    [SerializeField] private GameObject tickleUI;
+    [SerializeField] private ClownData clownData;
+
+    private TurnToTarget turnToTarget;
+    private ClownPatrol clownPatrol;
+    private ClownSpawn clownSpawn;
+
 
     void Start()
     {
-  
+        turnToTarget = GetComponent<TurnToTarget>();
+        clownSpawn = GetComponent<ClownSpawn>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-        // create initial states here
-        StartState startState = new StartState();
-        MidState midState = new MidState();
-        FinalState finalState = new FinalState();
-
-        startState.NextState(midState, clownData[0]);
-        midState.NextState(finalState, clownData[1]);
-        finalState.NextState(null, clownData[2]);
-
+        tickleBehaviour = GetComponentInChildren<TickleBehaviour>();
+        clownPatrol = new ClownPatrol();
         target = GameManager.instance.Player.transform;
 
-        currentState = startState;
-        startState.Enter(this);
-
+        clownPatrol.Enter(this, clownData);
     }
 
     void Update()
     {
 
-        currentState.Update(this);
-        IClownState clownState = currentState.Transition(this);
+        /*if(Input.GetKey(KeyCode.Space)){
+            clownSpawn.SpawnAtRandomPoint();
+        }*/
 
-        if(clownState == null){
-            Debug.Log("game over!");
+        if(animating && !animComplete){
             return;
         }
 
-        if(clownState != currentState){
-            currentState = clownState;
-            currentState.Enter(this);
+        if(!beenTickled && tickleBehaviour.inRange && turnToTarget.IsFacingAway()){
+            tickleUI.SetActive(true);
+        }
+
+        if(!tickleBehaviour.inRange){
+            tickleUI.SetActive(false);
+        }
+
+        if(Input.GetKey(KeyCode.E) && tickleUI.activeInHierarchy){
+            Debug.Log("tickle tiiiiime!!!");
+            DamageClown();
+            beenTickled = true;
+        }
+
+        clownPatrol.Update();
+
+        if(Vector3.Distance(transform.position, target.position) > seeDistance && seePlayer == true){
+            seePlayer = false;
         }
 
     }
 
+    private IEnumerator DamageAfterWait(float waitTime){
+        float elapsed = 0f;
 
-    public void Shake(){
-        //StartCoroutine(cameraShake.Shake(.5f, 1f));
+        while(elapsed < waitTime){
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+
+        DamageClown();
     }
+
+    public void SeePlayerSlip(){
+        Debug.Log("slipped on banana");
+        Debug.Log("been bananed" + beenBananad);
+        Debug.Log("see player" + seePlayer);
+        if(!beenBananad && seePlayer){
+            Debug.Log("THE PLAYER FELL ON BANANA HAHAHAHAHA");
+            beenBananad = true;
+            agent.SetDestination(transform.position);
+            agent.speed = 0;
+            damaged = true;
+            StartCoroutine(DamageAfterWait(2f));
+        }
+    }
+
+    public void DamageClown(){
+        animComplete = false;
+        animating = true;
+        idleAnim.SetActive(false);
+        laughingAnim.SetActive(true);
+        agent.speed = 0;
+        StartCoroutine(CompleteLaughter(1.15f));
+        damaged = true; 
+    }
+
+
+    private IEnumerator DeactivateAfterComplete(float duration, GameObject element)
+    {
+       float timeElapsed = 0f;
+
+        while(timeElapsed < duration){
+            timeElapsed += Time.deltaTime;
+            yield return 0;
+        }
+        element.SetActive(false);
+        
+    }
+    private IEnumerator CompleteLaughter(float animDuration){
+        float timeElapsed = 0f;
+
+        while(timeElapsed < animDuration){
+            timeElapsed += Time.deltaTime;
+            yield return 0;
+        }
+
+        animating = false;
+        animComplete = true;
+        damaged = false;
+        laughingAnim.SetActive(false);
+        idleAnim.SetActive(true);
+        //agent.speed = clownData.dashSpeed;
+        //Dash();
+        clownSpawn.SpawnAtRandomPoint();
+        warningUI.SetActive(true);
+        StartCoroutine(DeactivateAfterComplete(2f, warningUI));
+        agent.speed = clownData.roamSpeed;
+    }
+
 
     public bool IsChasing(){
         return chasing;
@@ -74,9 +168,6 @@ public class ClownBehaviour : MonoBehaviour
 
    
     public void ChasePlayer(){
-        if(!chasing){
-            Shake();
-        }
         investigating = false;
         chasing = true;
         agent.SetDestination(target.position);
@@ -92,6 +183,13 @@ public class ClownBehaviour : MonoBehaviour
         investigating = true;
     }
 
+    public void Dash(){
+        Debug.Log("run away!");
+        dashing = true;
+        chasing = false;
+        investigating = false;
+    }
+
     public void Roam(){
         Debug.Log("Going to choose a new random roam");
         chasing = false;
@@ -99,10 +197,22 @@ public class ClownBehaviour : MonoBehaviour
 
         Vector3 point;
 
-        if(RandomPoint(agent.transform.position, range, out point)){
+        if(dashing){
+            if(RandomPoint(agent.transform.position, 300, out point)){
+            Debug.Log("New dash location");
+            agent.SetDestination(point);
+            }
+        } else if(RandomPoint(agent.transform.position, range, out point)){
             Debug.Log("New random roam location picked");
             agent.SetDestination(point);
         }
+    }
+
+    public void DisplayWarning(){
+
+        warningUI.SetActive(true);
+        StartCoroutine(DeactivateAfterComplete(2f, warningUI));
+
     }
 
     // don't ask me to explain this
@@ -119,4 +229,7 @@ public class ClownBehaviour : MonoBehaviour
         result = hit.position;
         return true;
     }
+
+
+
 }

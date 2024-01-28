@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject runningUI;
     public GameObject RunningUI { get { return runningUI; } }
 
+    [SerializeField] private GameObject pieUI;
+    public GameObject PieUI { get {return pieUI; }}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,8 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void TogglePieUI() => pieUI.SetActive(!pieUI.activeSelf);
 
     public void ToggleBananaUI() => bananaUI.SetActive(!bananaUI.activeSelf);
 

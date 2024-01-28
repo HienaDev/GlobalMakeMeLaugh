@@ -1,52 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class TrashBag : MonoBehaviour
 {
 
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GameObject obj1;
+    [SerializeField] private GameObject obj2;
+    [SerializeField] private GameObject obj3;
 
-    private bool inRange;
+    public void TrashInteract() {
+        Vector3 auxPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 4f, gameObject.transform.position.z);
+        Instantiate(obj1, auxPos, quaternion.identity, GameManager.instance.InstantiateManager.transform);
+        Destroy(gameObject);
 
-    /*
-
-    makes a noise 
-    clown investigates noise in bag
-    cannot move for x amount of time
-    bool hasItem
-    if hasItem, item is added to UI
-    gamemanager - totalItems increases
-    hasItem is deactivated
-
-    playerMovement disable movement beginning of interaction
-    enable after interaction
-
-
-    */
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKey(KeyCode.E)){
-            Debug.Log("interacting w trash bag!");
-        }
-    }
-
-    private IEnumerator InteractionTimer(){
-        yield return 0;
-    }
-
-    private void OnCollisionEnter(Collision other) {
-        inRange = true;
-    }
-
-    private void OnCollisionExit(Collision other) {
-        inRange = false;
     }
 }

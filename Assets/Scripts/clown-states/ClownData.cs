@@ -8,5 +8,6 @@ public class ClownData : ScriptableObject {
 	public float roamSpeed;
 	public float chaseSpeed;
 	public float playerDetectionThreshold; // from behind
+	public float dashSpeed;
 	
 }

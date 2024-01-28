@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55ad15c97b0ef41fbac85d5d5865234e, type: 3}
-  m_Name: FinalRound
+  m_Name: ClownInfo
   m_EditorClassIdentifier: 
-  chaseThreshold: 0
-  roamSpeed: 0
-  chaseSpeed: 0
-  playerDetectionThreshold: 0
+  chaseThreshold: 40
+  roamSpeed: 7
+  chaseSpeed: 10
+  playerDetectionThreshold: 5
+  dashSpeed: 100
