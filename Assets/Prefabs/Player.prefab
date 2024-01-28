@@ -427,7 +427,7 @@ MonoBehaviour:
   banana: {fileID: 3159862876481346976, guid: 13be15ba0680a6c46894f0c049a4cbfd, type: 3}
   firePoint: {fileID: 1528190817868894052}
   strenght: 400
-  playerSounds: {fileID: 0}
+  playerSounds: {fileID: 3861933968059353440}
 --- !u!114 &3861933968059353440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,8 +501,8 @@ MonoBehaviour:
   pie: {fileID: 3159862876481346976, guid: 21cba9a6a858744a2ab9022deaa9fc8b, type: 3}
   firePoint: {fileID: 1528190817868894052}
   anim: {fileID: 0}
-  strength: 200
-  playerSounds: {fileID: 0}
+  strength: 400
+  playerSounds: {fileID: 3861933968059353440}
 --- !u!1 &1528190817868894052
 GameObject:
   m_ObjectHideFlags: 0

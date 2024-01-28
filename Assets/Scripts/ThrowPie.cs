@@ -26,7 +26,7 @@ public class ThrowPie : MonoBehaviour {
             if (GameManager.instance.PieUI.activeSelf)
             {
                 PieThrow();
-		anim.SetTrigger("throw");
+		        anim.SetTrigger("throw");
 
                 playerSounds.PlayThrowSoundSound();
 
@@ -53,7 +53,7 @@ public class ThrowPie : MonoBehaviour {
         Vector3 v3Force = strength * transform.forward;
         v3Force.y += 150f;
         pieClone.GetComponent<Rigidbody>().AddForce(v3Force);
-	StartCoroutine(DeletePie(pieClone));
+	    StartCoroutine(DeletePie(pieClone));
     }
 
     private IEnumerator DeletePie(GameObject pie){
