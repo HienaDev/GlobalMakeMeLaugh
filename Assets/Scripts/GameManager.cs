@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject bananaUI;
     public GameObject BananaUI { get { return bananaUI; } }
 
+    [SerializeField] private GameObject deathUI;
+    public GameObject DeathUI { get { return deathUI; } }
+
 
 
     [SerializeField] private GameObject player;
