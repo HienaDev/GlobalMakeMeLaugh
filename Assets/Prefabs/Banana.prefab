@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 5995116175250668259}
   - component: {fileID: 3992138968190442830}
   - component: {fileID: 5031795760929575876}
-  - component: {fileID: -1074358143545830916}
   - component: {fileID: -7514373504636940822}
   m_Layer: 10
   m_Name: Banana
@@ -174,24 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d608f772ba40bfb41a3034be870e61bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1074358143545830916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8067442395537012319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b052f628d8fda41967fa047ee723d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fart:
-  - {fileID: 8300000, guid: 46d947de722fbf9488b8abe8ba0f8064, type: 3}
-  - {fileID: 8300000, guid: f0f41d1a94f671049aef9f36054450f3, type: 3}
-  - {fileID: 8300000, guid: cfb12dd07e5a0014eb61d590bdd4259a, type: 3}
-  fartMixer: {fileID: 3815493241492038533, guid: 749080eca2d9753449e88acc91ba4931,
-    type: 2}
 --- !u!114 &-7514373504636940822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0980c4bea14d35644b554e0c942488eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  banana:
+  - {fileID: 8300000, guid: 46d947de722fbf9488b8abe8ba0f8064, type: 3}
+  - {fileID: 8300000, guid: f0f41d1a94f671049aef9f36054450f3, type: 3}
+  - {fileID: 8300000, guid: cfb12dd07e5a0014eb61d590bdd4259a, type: 3}
+  bananaMixer: {fileID: 3815493241492038533, guid: 749080eca2d9753449e88acc91ba4931,
+    type: 2}

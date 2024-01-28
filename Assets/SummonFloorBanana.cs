@@ -28,7 +28,8 @@ public class SummonFloorBanana : MonoBehaviour
         if (x == floorLayer.value)
         {
 
-            Instantiate(floorBanana, transform.position, transform.rotation, GameManager.instance.InstantiateManager.transform);
+            Instantiate(floorBanana, transform.position, transform.rotation, GameManager.instance.InstantiateManager.transform);//.GetComponent<BananaSound>().PlayBananaSound(); ;
+
 
             Destroy(gameObject);
         }

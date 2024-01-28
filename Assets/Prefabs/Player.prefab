@@ -368,7 +368,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ClownBehaviour, Assembly-CSharp
-        m_MethodName: SeePlayerSlip
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -478,6 +478,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3cb0caaa83c1ce64ba96fa0d4d665126, type: 3}
   - {fileID: 8300000, guid: bdf53b1025c99ae4c9cb34e39132028e, type: 3}
   stepsMixer: {fileID: -1957703017442235126, guid: ed5ab204277a70842a9da6fa86e1d151,
+    type: 2}
+  discover:
+  - {fileID: 8300000, guid: ad7ff04a1e8f6ca458a6b76d4ecd6b61, type: 3}
+  - {fileID: 8300000, guid: 38e2dd98b3f3ccf4993ba58c1bb5e838, type: 3}
+  - {fileID: 8300000, guid: 9677874c54636984cbacb27fe9784427, type: 3}
+  discoverMixer: {fileID: 2907200876290764329, guid: ed5ab204277a70842a9da6fa86e1d151,
     type: 2}
 --- !u!1 &1528190817868894052
 GameObject:

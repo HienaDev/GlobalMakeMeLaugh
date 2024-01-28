@@ -76946,6 +76946,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 235199763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1467908896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7652317441892809610, guid: 0b66caa5fb3be2a43ae05e94b9a22dab,
+    type: 3}
+  m_PrefabInstance: {fileID: 859858540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246bde7c21824483a9c5efd6dab35e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1467962629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3337843628724887407, guid: c4e85f95fe9a13248b99950d92bf1b9e,
@@ -88368,32 +88380,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3861933968059353440, guid: 6b7603a39ea518840896fe741476a29c,
-        type: 3}
-      propertyPath: discoverMixer
-      value: 
-      objectReference: {fileID: 2907200876290764329, guid: ed5ab204277a70842a9da6fa86e1d151,
-        type: 2}
-    - target: {fileID: 3861933968059353440, guid: 6b7603a39ea518840896fe741476a29c,
-        type: 3}
-      propertyPath: discover.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3861933968059353440, guid: 6b7603a39ea518840896fe741476a29c,
-        type: 3}
-      propertyPath: discover.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: ad7ff04a1e8f6ca458a6b76d4ecd6b61, type: 3}
-    - target: {fileID: 3861933968059353440, guid: 6b7603a39ea518840896fe741476a29c,
-        type: 3}
-      propertyPath: discover.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 38e2dd98b3f3ccf4993ba58c1bb5e838, type: 3}
-    - target: {fileID: 3861933968059353440, guid: 6b7603a39ea518840896fe741476a29c,
-        type: 3}
-      propertyPath: discover.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9677874c54636984cbacb27fe9784427, type: 3}
     - target: {fileID: 7406433915158962161, guid: 6b7603a39ea518840896fe741476a29c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -88446,8 +88432,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528967279809753424, guid: 6b7603a39ea518840896fe741476a29c,
         type: 3}
-      propertyPath: triggerOnFall.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: triggerOnFall.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 1467908896}
+    - target: {fileID: 7528967279809753424, guid: 6b7603a39ea518840896fe741476a29c,
+        type: 3}
+      propertyPath: triggerOnFall.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SeePlayerSlip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
