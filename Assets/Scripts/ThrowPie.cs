@@ -1,9 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ThrowPie : MonoBehaviour {
 
     [SerializeField] private GameObject pie;
     [SerializeField] private GameObject firePoint;
+    [SerializeField] private Animator anim;
 
     [SerializeField] private float strength;
 
@@ -23,12 +26,24 @@ public class ThrowPie : MonoBehaviour {
             if (GameManager.instance.PieUI.activeSelf)
             {
                 PieThrow();
+		anim.SetTrigger("throw");
 
                 playerSounds.PlayThrowSoundSound();
 
-                GameManager.instance.TogglePieUI();
+                StartCoroutine(ThrowPieAnim(1f));
             }
         }
+    }
+
+    private IEnumerator ThrowPieAnim(float time){
+	float elapsed = 0f;
+
+	while(elapsed < time){
+		elapsed += Time.deltaTime;
+		yield return 0;
+	}
+
+	GameManager.instance.TogglePieUI();
     }
 
     private void PieThrow()
@@ -38,5 +53,18 @@ public class ThrowPie : MonoBehaviour {
         Vector3 v3Force = strength * transform.forward;
         v3Force.y += 150f;
         pieClone.GetComponent<Rigidbody>().AddForce(v3Force);
+	StartCoroutine(DeletePie(pieClone));
+    }
+
+    private IEnumerator DeletePie(GameObject pie){
+	float elapsed = 0f;
+
+	while(elapsed < 2f){
+		elapsed += Time.deltaTime;
+		yield return 0;
+	}
+
+	Destroy(pie);
+
     }
 }
