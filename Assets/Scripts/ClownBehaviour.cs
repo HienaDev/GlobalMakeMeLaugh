@@ -32,6 +32,8 @@ public class ClownBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject laughingAnim;
     [SerializeField] private GameObject idleAnim;
+    [SerializeField] private GameObject idlePie;
+    [SerializeField] private GameObject laughingPie;
     [SerializeField] private float seeDistance;
     [SerializeField] private ClownData clownData;
 
@@ -108,6 +110,57 @@ public class ClownBehaviour : MonoBehaviour
             damaged = true;
             StartCoroutine(DamageAfterWait(2f));
         }
+    }
+
+    public void GetPied(){
+        Debug.Log("getting pied in the fucking face");
+        if(!beenCaked){
+            beenCaked = true;
+            damaged = true;
+            agent.SetDestination(transform.position);
+            agent.speed = 0;
+            idleAnim.SetActive(false);
+            idlePie.SetActive(true);
+            StartCoroutine(DamageAfterWait(2f));
+        }
+    }
+
+
+    private IEnumerator DamageWithPieAfterWait(float waitTime){
+        float elapsed = 0f;
+
+        while(elapsed < waitTime){
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+
+        animComplete = false;
+        animating = true;
+        idlePie.SetActive(false);
+        laughingPie.SetActive(true);
+        agent.speed = 0;
+        StartCoroutine(CompleteLaughter(1.15f));
+        damaged = true;  
+    }
+
+
+    private IEnumerator CompletePieLaughter(float animDuration){
+         float timeElapsed = 0f;
+
+        while(timeElapsed < animDuration){
+            timeElapsed += Time.deltaTime;
+            yield return 0;
+        }
+
+        animating = false;
+        animComplete = true;
+        damaged = false;
+        laughingPie.SetActive(false);
+        idleAnim.SetActive(true);
+        clownSpawn.SpawnAtRandomPoint();
+        GameManager.instance.WarningUI.SetActive(true);
+        StartCoroutine(DeactivateAfterComplete(2f, GameManager.instance.WarningUI));
+        agent.speed = clownData.roamSpeed;
     }
 
     public void DamageClown(){
