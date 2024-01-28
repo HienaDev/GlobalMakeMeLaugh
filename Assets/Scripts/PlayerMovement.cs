@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Transform           head;
 
+    //private 
 
     private void Start()
     {

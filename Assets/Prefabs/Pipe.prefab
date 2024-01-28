@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 105140460233685270}
   - component: {fileID: 5664099175023100508}
   - component: {fileID: 1065354850071988497}
+  - component: {fileID: 1683612323166165006}
   m_Layer: 0
   m_Name: Droplet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4657066886466065722
 Transform:
   m_ObjectHideFlags: 0
@@ -49,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583158880740117924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -106,6 +107,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1683612323166165006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583158880740117924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6f76d1b19d83c4eafde223d67b3a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4550524865927632868
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +132,7 @@ GameObject:
   - component: {fileID: 1210323442826336730}
   - component: {fileID: 4460968015714690984}
   - component: {fileID: 6184413859127804351}
+  - component: {fileID: 9143176486349253069}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -225,5 +239,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed03f4ce97eef444a084622ddd91b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 1
-  maxTime: 5
+  minTime: 3
+  maxTime: 10
+--- !u!114 &9143176486349253069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4550524865927632868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0602e3d3f35abef4385919a5d9b7711b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droplet:
+  - {fileID: 8300000, guid: 202420d70c68ed34a939d475a38db58f, type: 3}
+  - {fileID: 8300000, guid: d08bf2932bb602e4cb75594780f5aaf7, type: 3}
+  - {fileID: 8300000, guid: b87653a05c74c964c89d7628072fa8c7, type: 3}
+  - {fileID: 8300000, guid: 6905b3ff557d3494ba411c15ba8a8095, type: 3}
+  - {fileID: 8300000, guid: e7539ffa644f4e14181b37492e4447a4, type: 3}
+  - {fileID: 8300000, guid: 3cb0caaa83c1ce64ba96fa0d4d665126, type: 3}
+  - {fileID: 8300000, guid: bdf53b1025c99ae4c9cb34e39132028e, type: 3}
+  dropletMixer: {fileID: -5826762232263426951, guid: a18f2db7e4f0d8f4caf84bf0e4263bd6,
+    type: 2}
