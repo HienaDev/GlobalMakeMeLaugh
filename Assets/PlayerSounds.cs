@@ -151,7 +151,7 @@ public class PlayerSounds : MonoBehaviour
     {
         audioSourceSteps.clip = steps[Random.Range(0, steps.Length)];
 
-        audioSourceSteps.pitch = Random.Range(1.3f, 1.5f);
+        audioSourceSteps.pitch = Random.Range(0.4f, 0.5f);
 
         audioSourceSteps.Play();
     }

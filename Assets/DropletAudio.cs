@@ -27,7 +27,7 @@ public class DropletAudio : MonoBehaviour
     {
         audioSourceDroplet.clip = droplet[Random.Range(0, droplet.Length)];
 
-        audioSourceDroplet.pitch = Random.Range(0.95f, 1.05f);
+        audioSourceDroplet.pitch = Random.Range(2.5f, 2.7f);
 
         audioSourceDroplet.Play();
     }
