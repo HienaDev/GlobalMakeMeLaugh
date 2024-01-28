@@ -11,6 +11,11 @@ public class MicrowaveInteract : MonoBehaviour
             GameManager.instance.FlourUI.activeSelf)
         {
             Debug.Log("PIE IN THE MAKING!!!");
+            GameManager.instance.ToggleChantyUI();
+            GameManager.instance.ToggleEggUI();
+            GameManager.instance.ToggleFlourUI();
+            // wait some time for microwave animation to stop...
+            GameManager.instance.TogglePieUI();
         }
     }
 }

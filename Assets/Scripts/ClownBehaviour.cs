@@ -8,13 +8,6 @@ public class ClownBehaviour : MonoBehaviour
 {
 
 
-    /*
-        if you fall on a banana in front of him, he is "damaged" and does the whole dash away thing again
-        player fall on banana
-            can clown see player and clown not bananed yet?
-                DamageClown
-                    been bananaed true
-    */
     [SerializeField] private float range; // range used to choose new random location 
     private Transform target; // player 
 
