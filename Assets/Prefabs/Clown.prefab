@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 1628606506752607759}
   - component: {fileID: 5808432657017580301}
   - component: {fileID: 3171205342687270572}
+  - component: {fileID: 7015934477987439043}
   m_Layer: 6
   m_Name: Clown
   m_TagString: Untagged
@@ -483,6 +484,7 @@ MonoBehaviour:
   range: 100
   laughingAnim: {fileID: 1481083796310786433}
   idleAnim: {fileID: 877454347122092915}
+  seeDistance: 30
   warningUI: {fileID: 0}
   tickleUI: {fileID: 0}
   clownData: {fileID: 11400000, guid: 467e4c3fd49c94b38a51538dc3f98148, type: 2}
@@ -562,6 +564,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.943634
   m_Center: {x: 0, y: 0, z: -0.6861572}
+--- !u!114 &7015934477987439043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666370766878468289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee81c8b8d5464e63b1685a3211d7209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8704417848007378140
 GameObject:
   m_ObjectHideFlags: 0

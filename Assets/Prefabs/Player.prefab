@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 6209787730838909294}
   - component: {fileID: 8516341013657393843}
   - component: {fileID: 3861933968059353440}
+  - component: {fileID: 1812431442654092261}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -366,6 +367,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ClownBehaviour, Assembly-CSharp
+        m_MethodName: SeePlayerSlip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &313931457704066000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +480,32 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bdf53b1025c99ae4c9cb34e39132028e, type: 3}
   stepsMixer: {fileID: -1957703017442235126, guid: ed5ab204277a70842a9da6fa86e1d151,
     type: 2}
+--- !u!114 &1812431442654092261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244583581943709872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0401f5ba16d25264881d15e14e7bf0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwSound: []
+  throwSoundMixer: {fileID: 0}
+  hurt: []
+  hurtMixer: {fileID: 0}
+  marco: []
+  marcoMixer: {fileID: 0}
+  runningBreath: []
+  runningBreathMixer: {fileID: 0}
+  waterPistol: []
+  waterPistolMixer: {fileID: 0}
+  slip: []
+  slipMixer: {fileID: 0}
+  steps: []
+  stepsMixer: {fileID: 0}
 --- !u!1 &1528190817868894052
 GameObject:
   m_ObjectHideFlags: 0
