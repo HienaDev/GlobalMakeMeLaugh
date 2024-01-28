@@ -43,11 +43,26 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject runningUI1Handed;
     [SerializeField] private GameObject runningNoHands;
     public GameObject RunningUI { get {
+
+
+
             if (bananaUI.activeSelf)
+            {
+                runningNoHands.SetActive(false);
+                runningUI.SetActive(false);
+
                 return runningUI1Handed;
+            }
 
             else if (pieUI.activeSelf)
+            {
+                runningUI1Handed.SetActive(false);
+                runningUI.SetActive(false);
                 return runningNoHands;
+            }
+
+            runningUI1Handed.SetActive(false);
+            runningNoHands.SetActive(false);
 
             return runningUI; 
         } }

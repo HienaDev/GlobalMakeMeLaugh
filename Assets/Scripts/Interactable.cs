@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
+        GameManager.instance.Player.GetComponent<PlayerSounds>().PlayDiscoverSound();
         interact.Invoke();
     }
 }

@@ -34,9 +34,9 @@ public class PlayerSounds : MonoBehaviour
     private AudioSource audioSourceSteps;
     [SerializeField] private AudioMixerGroup stepsMixer;
 
-    //[SerializeField] private AudioClip[] hit;
-    //private AudioSource audioSourceHit;
-    //[SerializeField] private AudioMixerGroup hitMixer;
+    [SerializeField] private AudioClip[] discover;
+    private AudioSource audioSourceDiscover;
+    [SerializeField] private AudioMixerGroup discoverMixer;
 
     //[SerializeField] private AudioClip spawn;
     //private AudioSource audioSourceSpawn;
@@ -78,9 +78,9 @@ public class PlayerSounds : MonoBehaviour
         audioSourceSteps.outputAudioMixerGroup = stepsMixer;
         audioSourceSteps.spatialBlend = 1;
 
-        //audioSourceHit = gameObject.AddComponent<AudioSource>();
-        //audioSourceHit.outputAudioMixerGroup = hitMixer;
-        //audioSourceHit.spatialBlend = 1;
+        audioSourceDiscover = gameObject.AddComponent<AudioSource>();
+        audioSourceDiscover.outputAudioMixerGroup = discoverMixer;
+        audioSourceDiscover.spatialBlend = 1;
 
         //audioSourceSpawn = gameObject.AddComponent<AudioSource>();
         //audioSourceSpawn.outputAudioMixerGroup = spawnMixer;
@@ -156,14 +156,14 @@ public class PlayerSounds : MonoBehaviour
         audioSourceSteps.Play();
     }
 
-    //public void PlayHitSound()
-    //{
-    //    audioSourceHit.clip = hit[Random.Range(0, hit.Length)];
+   public void PlayDiscoverSound()
+   {
+       audioSourceDiscover.clip = discover[Random.Range(0, discover.Length)];
 
-    //    audioSourceHit.pitch = Random.Range(0.8f, 1.2f);
+       audioSourceDiscover.pitch = Random.Range(0.8f, 1.2f);
 
-    //    audioSourceHit.Play();
-    //}
+       audioSourceDiscover.Play();
+   }
 
     //public void PlaySpawnSound()
     //{
