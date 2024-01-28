@@ -58,11 +58,15 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateRotation()
     {
 
-        UpdatePlayerRotation();
-        UpdateHeadRotation();
-        Move();
+         
+            UpdatePlayerRotation();
+            UpdateHeadRotation();
+            Move();
 
-        if (moving)
+
+        moving = !GameManager.instance.MapUILogic.Animator.GetBool("Open");
+
+            if (moving)
         {
             
         }
