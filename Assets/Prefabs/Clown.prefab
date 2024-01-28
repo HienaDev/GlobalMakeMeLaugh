@@ -485,8 +485,6 @@ MonoBehaviour:
   laughingAnim: {fileID: 1481083796310786433}
   idleAnim: {fileID: 877454347122092915}
   seeDistance: 30
-  warningUI: {fileID: 0}
-  tickleUI: {fileID: 0}
   clownData: {fileID: 11400000, guid: 467e4c3fd49c94b38a51538dc3f98148, type: 2}
 --- !u!114 &9102593061525065748
 MonoBehaviour:
