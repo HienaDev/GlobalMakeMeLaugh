@@ -25,7 +25,7 @@ public class LookAtStuff : MonoBehaviour
 
 
  
-                if(Input.GetKey(KeyCode.E))
+                if(Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.gameObject.GetComponent<Interactable>()?.Interact();
 
