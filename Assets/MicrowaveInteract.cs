@@ -9,13 +9,20 @@ public class MicrowaveInteract : MonoBehaviour
 
     private MicrowaveSounds microSounds;
 
+    [SerializeField] private Sprite microwaveLight;
+    private Sprite defaultSprite;
 
+    private bool ready;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
 
         microSounds = GetComponent<MicrowaveSounds>();
+
+        defaultSprite = GetComponent<SpriteRenderer>().sprite;
+
+        ready = false;
     }
 
     public void Microwave()
@@ -36,6 +43,18 @@ public class MicrowaveInteract : MonoBehaviour
 
             
         }
+
+        Debug.Log(ready);
+
+        if(!GameManager.instance.BananaUI.activeSelf && ready)
+        {
+            //GetComponent<SpriteRenderer>().sprite = defaultSprite;
+
+            animator.SetTrigger("PickUp");
+
+            // wait some time for microwave animation to stop...
+            GameManager.instance.TogglePieUI();
+        }
     }
 
     private IEnumerator DeactivateAfterComplete()
@@ -49,9 +68,12 @@ public class MicrowaveInteract : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         animator.SetBool("On", false);
+
         microSounds.PlayDingSound();
 
-        // wait some time for microwave animation to stop...
-        GameManager.instance.TogglePieUI();
+        ready = true;
+
+        
+
     }
 }
