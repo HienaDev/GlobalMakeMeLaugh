@@ -7,9 +7,15 @@ public class MicrowaveInteract : MonoBehaviour
 
     private Animator animator;
 
+    private MicrowaveSounds microSounds;
+
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        microSounds = GetComponent<MicrowaveSounds>();
     }
 
     public void Microwave()
@@ -23,15 +29,29 @@ public class MicrowaveInteract : MonoBehaviour
             GameManager.instance.ToggleEggUI();
             GameManager.instance.ToggleFlourUI();
 
-
-            //Iinicio de corrotina, micro ondas fica ligado
-            animator.SetBool("On", true);
+            StartCoroutine(DeactivateAfterComplete());
 
             //Final da corrotina, micro ondas desliga
-            animator.SetBool("On", false);
+            //
 
-            // wait some time for microwave animation to stop...
-            GameManager.instance.TogglePieUI();
+            
         }
+    }
+
+    private IEnumerator DeactivateAfterComplete()
+    {
+
+        microSounds.PlayOpenSound();
+
+        //Iinicio de corrotina, micro ondas fica ligado
+        animator.SetBool("On", true);
+
+        yield return new WaitForSeconds(3f);
+
+        animator.SetBool("On", false);
+        microSounds.PlayDingSound();
+
+        // wait some time for microwave animation to stop...
+        GameManager.instance.TogglePieUI();
     }
 }

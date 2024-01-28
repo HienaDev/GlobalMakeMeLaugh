@@ -13,6 +13,10 @@ public class MicrowaveSounds : MonoBehaviour
     private AudioSource audioSourceDing;
     [SerializeField] private AudioMixerGroup dingMixer;
 
+    [SerializeField] private AudioSource audioON;
+
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +28,14 @@ public class MicrowaveSounds : MonoBehaviour
         audioSourceDing.outputAudioMixerGroup = dingMixer;
         audioSourceDing.spatialBlend = 1;
 
+        animator = GetComponent<Animator>();
+
     }
 
+    private void Update()
+    {
+        audioON.enabled = animator.GetBool("On"); 
+    }
 
     public void PlayOpenSound()
     {
