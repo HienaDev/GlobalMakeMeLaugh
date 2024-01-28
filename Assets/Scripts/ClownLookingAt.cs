@@ -43,8 +43,6 @@ public class ClownLookingAt : MonoBehaviour
                 }
                 else
                     Debug.DrawRay(eye.transform.position, eye.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
-                //Debug.Log(eye.name + " saw " + hit.collider.gameObject.name);
             }
         }
     }

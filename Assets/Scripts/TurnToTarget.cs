@@ -10,24 +10,24 @@ public class TurnToTarget : MonoBehaviour
     private Transform target;
     [SerializeField] private GameObject spriteToRotate;
 
-    [SerializeField] private Texture clownBack;
-    [SerializeField] private Texture clownFront;
-    [SerializeField] private Texture clownSideLeft;
-    [SerializeField] private Texture clownSideRight;
+    [SerializeField] private Sprite clownBack;
+    [SerializeField] private Sprite clownFront;
+    [SerializeField] private Sprite clownSideLeft;
+    [SerializeField] private Sprite clownSideRight;
 
     [SerializeField] private TouchingPlayer checkSide;
 
     private bool facingAway;
 
 
-    private Material material;
+    private SpriteRenderer spriteRenderer;
 
     private Vector3 angles;
 
     // Start is called before the first frame update
     void Start()
     {
-        material = spriteToRotate.GetComponent<Renderer>().material;
+        spriteRenderer = spriteToRotate.GetComponent<SpriteRenderer>();
         target = GameManager.instance.Player.transform;
     }
 
@@ -45,7 +45,7 @@ public class TurnToTarget : MonoBehaviour
 
         angles = spriteToRotate.transform.eulerAngles;
 
-        spriteToRotate.transform.rotation = Quaternion.Euler(90, angles.y, 0);
+        spriteToRotate.transform.rotation = Quaternion.Euler(0, angles.y + 180, 0);
     }
 
     private void UpdateSprite()
@@ -54,20 +54,20 @@ public class TurnToTarget : MonoBehaviour
 
         if(direction < 45)
         {
-            material.SetTexture("_BaseMap", clownBack);
+            spriteRenderer.sprite = clownBack;
             facingAway = true;
         }
         else if (direction > 135)
         {
-            material.SetTexture("_BaseMap", clownFront);
+            spriteRenderer.sprite = clownFront;
             facingAway = false;
         }
         else
         {
             if (checkSide.PlayerToggle)
-                material.SetTexture("_BaseMap", clownSideLeft);
+                spriteRenderer.sprite = clownSideLeft;
             else
-                material.SetTexture("_BaseMap", clownSideRight);
+                spriteRenderer.sprite = clownSideRight;
 
             facingAway = false;
         }
