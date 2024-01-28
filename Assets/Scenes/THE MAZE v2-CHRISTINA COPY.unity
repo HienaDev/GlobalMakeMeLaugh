@@ -8691,6 +8691,11 @@ MonoBehaviour:
   flourUI: {fileID: 0}
   chantyUI: {fileID: 0}
   runningUI: {fileID: 0}
+  runningUI1Handed: {fileID: 0}
+  runningNoHands: {fileID: 0}
+  pieUI: {fileID: 0}
+  warningUI: {fileID: 0}
+  tickleUI: {fileID: 0}
 --- !u!4 &1347045103
 Transform:
   m_ObjectHideFlags: 0

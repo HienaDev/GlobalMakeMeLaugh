@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 6209787730838909294}
   - component: {fileID: 8516341013657393843}
   - component: {fileID: 3861933968059353440}
+  - component: {fileID: 4829141667412140539}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -368,7 +369,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ClownBehaviour, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SeePlayerSlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -485,6 +486,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9677874c54636984cbacb27fe9784427, type: 3}
   discoverMixer: {fileID: 2907200876290764329, guid: ed5ab204277a70842a9da6fa86e1d151,
     type: 2}
+--- !u!114 &4829141667412140539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244583581943709872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20138df821d784ba387254c541e7c1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pie: {fileID: 3159862876481346976, guid: 21cba9a6a858744a2ab9022deaa9fc8b, type: 3}
+  firePoint: {fileID: 1528190817868894052}
+  anim: {fileID: 0}
+  strength: 200
+  playerSounds: {fileID: 0}
 --- !u!1 &1528190817868894052
 GameObject:
   m_ObjectHideFlags: 0
