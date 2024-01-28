@@ -7,7 +7,10 @@ public class BananaInteract : MonoBehaviour
     // Start is called before the first frame update
     public void BananaUI()
     { 
-        GameManager.instance.ToggleBananaUI();
-        Destroy(gameObject);
+        if(!GameManager.instance.PieUI.activeSelf)
+        { 
+            GameManager.instance.ToggleBananaUI();
+            Destroy(gameObject);
+        }
     }
 }
