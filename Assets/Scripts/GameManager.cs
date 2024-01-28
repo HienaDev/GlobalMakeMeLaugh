@@ -40,8 +40,19 @@ public class GameManager : MonoBehaviour
     public GameObject ChantyUI { get { return chantyUI; } }
 
     [SerializeField] private GameObject runningUI;
-    public GameObject RunningUI { get { return runningUI; } }
+    [SerializeField] private GameObject runningUI1Handed;
+    [SerializeField] private GameObject runningNoHands;
+    public GameObject RunningUI { get {
+            if (bananaUI.activeSelf)
+                return runningUI1Handed;
 
+            else if (pieUI.activeSelf)
+                return runningNoHands;
+
+            return runningUI; 
+        } }
+
+    
     [SerializeField] private GameObject pieUI;
     public GameObject PieUI { get {return pieUI; }}
 
