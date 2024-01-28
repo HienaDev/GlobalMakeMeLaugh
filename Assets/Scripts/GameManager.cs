@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
 
     public void TogglePieUI() => pieUI.SetActive(!pieUI.activeSelf);
 
+    public void ToggleDeathUI() => deathUI.SetActive(!deathUI.activeSelf);
+
     public void ToggleBananaUI() => bananaUI.SetActive(!bananaUI.activeSelf);
 
     public void ToggleEggUI() => eggUI.SetActive(!eggUI.activeSelf);

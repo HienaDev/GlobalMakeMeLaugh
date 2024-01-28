@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 27935652}
   m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -32645,6 +32644,72 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1633525997}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &615729639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615729640}
+  - component: {fileID: 615729642}
+  - component: {fileID: 615729641}
+  m_Layer: 14
+  m_Name: DeathTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &615729640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615729639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 859858541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &615729641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615729639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d35cd6716012e48a6a03b8462b88b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &615729642
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615729639}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 2.22, z: 3.17}
 --- !u!1001 &616101668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47345,6 +47410,11 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[3]
       value: 
       objectReference: {fileID: 159249135}
+    - target: {fileID: 7790504968980093788, guid: 0b66caa5fb3be2a43ae05e94b9a22dab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8666370766878468289, guid: 0b66caa5fb3be2a43ae05e94b9a22dab,
         type: 3}
       propertyPath: m_Name
@@ -47352,9 +47422,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6134430746847954028, guid: 0b66caa5fb3be2a43ae05e94b9a22dab,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 615729640}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b66caa5fb3be2a43ae05e94b9a22dab, type: 3}
+--- !u!4 &859858541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6134430746847954028, guid: 0b66caa5fb3be2a43ae05e94b9a22dab,
+    type: 3}
+  m_PrefabInstance: {fileID: 859858540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &861753040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3337843628724887407, guid: 2b73b36a6e441ac4f9451119bfe94225,
@@ -114525,3 +114605,4 @@ SceneRoots:
   - {fileID: 1765559942}
   - {fileID: 813054605}
   - {fileID: 960475552}
+  - {fileID: 1537580051}
