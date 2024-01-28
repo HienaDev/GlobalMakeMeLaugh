@@ -13,6 +13,12 @@ public class TrashBag : MonoBehaviour
     public void TrashInteract() {
         Vector3 auxPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 4f, gameObject.transform.position.z);
         Instantiate(obj1, auxPos, quaternion.identity, GameManager.instance.InstantiateManager.transform);
+
+        auxPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 4f, gameObject.transform.position.z);
+        Instantiate(obj2, auxPos, quaternion.identity, GameManager.instance.InstantiateManager.transform);
+
+        auxPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 4f, gameObject.transform.position.z);
+        Instantiate(obj3, auxPos, quaternion.identity, GameManager.instance.InstantiateManager.transform);
         Destroy(gameObject);
 
     }

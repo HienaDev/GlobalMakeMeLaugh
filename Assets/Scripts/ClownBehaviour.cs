@@ -121,7 +121,7 @@ public class ClownBehaviour : MonoBehaviour
             agent.speed = 0;
             idleAnim.SetActive(false);
             idlePie.SetActive(true);
-            StartCoroutine(DamageAfterWait(2f));
+            StartCoroutine(DamageWithPieAfterWait(2f));
         }
     }
 
@@ -139,7 +139,7 @@ public class ClownBehaviour : MonoBehaviour
         idlePie.SetActive(false);
         laughingPie.SetActive(true);
         agent.speed = 0;
-        StartCoroutine(CompleteLaughter(1.15f));
+        StartCoroutine(CompletePieLaughter(1.15f));
         damaged = true;  
     }
 

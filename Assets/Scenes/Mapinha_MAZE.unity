@@ -14,18 +14,18 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.2190667, g: 0.23584908, b: 0.16613267, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.099
+  m_FogDensity: 0.04
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 2.25
+  m_AmbientIntensity: 2
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.56037736, g: 0.6847987, b: 1, a: 1}
+  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -6479,7 +6479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3254902, g: 0.3254902, b: 0.3254902, a: 1}
+  m_Color: {r: 0.582, g: 0.582, b: 0.582, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -42734,6 +42734,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 524072135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &813054605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3703492023427225265, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: dingMixer
+      value: 
+      objectReference: {fileID: -3747924788678191391, guid: 749080eca2d9753449e88acc91ba4931,
+        type: 2}
+    - target: {fileID: 6323767050258238875, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_Name
+      value: Microwave
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 178.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756610904269736785, guid: a750892749c678b43b8030ce5cebb062,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a750892749c678b43b8030ce5cebb062, type: 3}
 --- !u!1001 &813617839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50677,7 +50751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32700002, g: 0.32700002, b: 0.32700002, a: 1}
+  m_Color: {r: 0.582, g: 0.582, b: 0.582, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -76484,7 +76558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32700002, g: 0.32700002, b: 0.32700002, a: 1}
+  m_Color: {r: 0.582, g: 0.582, b: 0.582, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -77186,6 +77260,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 235199763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1467908896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7652317441892809610, guid: 0b66caa5fb3be2a43ae05e94b9a22dab,
+    type: 3}
+  m_PrefabInstance: {fileID: 859858540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246bde7c21824483a9c5efd6dab35e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1467962629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3337843628724887407, guid: c4e85f95fe9a13248b99950d92bf1b9e,
@@ -86746,7 +86832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32700002, g: 0.32700002, b: 0.32700002, a: 1}
+  m_Color: {r: 0.582, g: 0.582, b: 0.582, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -88662,7 +88748,12 @@ PrefabInstance:
         type: 3}
       propertyPath: triggerOnFall.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1452691639}
+      objectReference: {fileID: 1467908896}
+    - target: {fileID: 7528967279809753424, guid: 6b7603a39ea518840896fe741476a29c,
+        type: 3}
+      propertyPath: triggerOnFall.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SeePlayerSlip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -98717,7 +98808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32700002, g: 0.32700002, b: 0.32700002, a: 1}
+  m_Color: {r: 0.582, g: 0.582, b: 0.582, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -111745,4 +111836,4 @@ SceneRoots:
   - {fileID: 777022386}
   - {fileID: 257775503}
   - {fileID: 1765559942}
-  - {fileID: 960475552}
+  - {fileID: 813054605}
