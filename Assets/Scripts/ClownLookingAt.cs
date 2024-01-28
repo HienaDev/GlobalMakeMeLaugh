@@ -40,6 +40,7 @@ public class ClownLookingAt : MonoBehaviour
                     Debug.Log("FOUND PLAYER");
                     // chase
                     clownBehaviour.ChasePlayer();
+                    clownBehaviour.seePlayer = true;
                 }
                 else
                     Debug.DrawRay(eye.transform.position, eye.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);

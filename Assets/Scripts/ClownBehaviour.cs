@@ -11,7 +11,7 @@ public class ClownBehaviour : MonoBehaviour
     /*
         if you fall on a banana in front of him, he is "damaged" and does the whole dash away thing again
         player fall on banana
-            can player see clown and clown see player and clown not bananed yet?
+            can clown see player and clown not bananed yet?
                 DamageClown
                     been bananaed true
     */
@@ -39,6 +39,7 @@ public class ClownBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject laughingAnim;
     [SerializeField] private GameObject idleAnim;
+    [SerializeField] private float seeDistance;
 
     [SerializeField] private GameObject warningUI;
 
@@ -47,11 +48,13 @@ public class ClownBehaviour : MonoBehaviour
 
     private TurnToTarget turnToTarget;
     private ClownPatrol clownPatrol;
+    private ClownSpawn clownSpawn;
 
 
     void Start()
     {
         turnToTarget = GetComponent<TurnToTarget>();
+        clownSpawn = GetComponent<ClownSpawn>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         tickleBehaviour = GetComponentInChildren<TickleBehaviour>();
         clownPatrol = new ClownPatrol();
@@ -62,6 +65,11 @@ public class ClownBehaviour : MonoBehaviour
 
     void Update()
     {
+
+        /*if(Input.GetKey(KeyCode.Space)){
+            clownSpawn.SpawnAtRandomPoint();
+        }*/
+
         if(animating && !animComplete){
             return;
         }
@@ -82,6 +90,35 @@ public class ClownBehaviour : MonoBehaviour
 
         clownPatrol.Update();
 
+        if(Vector3.Distance(transform.position, target.position) > seeDistance && seePlayer == true){
+            seePlayer = false;
+        }
+
+    }
+
+    private IEnumerator DamageAfterWait(float waitTime){
+        float elapsed = 0f;
+
+        while(elapsed < waitTime){
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+
+        DamageClown();
+    }
+
+    public void SeePlayerSlip(){
+        Debug.Log("slipped on banana");
+        Debug.Log("been bananed" + beenBananad);
+        Debug.Log("see player" + seePlayer);
+        if(!beenBananad && seePlayer){
+            Debug.Log("THE PLAYER FELL ON BANANA HAHAHAHAHA");
+            beenBananad = true;
+            agent.SetDestination(transform.position);
+            agent.speed = 0;
+            damaged = true;
+            StartCoroutine(DamageAfterWait(2f));
+        }
     }
 
     public void DamageClown(){
@@ -119,8 +156,12 @@ public class ClownBehaviour : MonoBehaviour
         damaged = false;
         laughingAnim.SetActive(false);
         idleAnim.SetActive(true);
-        agent.speed = clownData.dashSpeed;
-        Dash();
+        //agent.speed = clownData.dashSpeed;
+        //Dash();
+        clownSpawn.SpawnAtRandomPoint();
+        warningUI.SetActive(true);
+        StartCoroutine(DeactivateAfterComplete(2f, warningUI));
+        agent.speed = clownData.roamSpeed;
     }
 
 
