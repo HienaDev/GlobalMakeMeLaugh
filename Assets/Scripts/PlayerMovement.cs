@@ -58,17 +58,21 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateRotation()
     {
 
-        if (!GameManager.instance.DeathUI.activeSelf)
-        { 
+        moving = true;
+
+        if (GameManager.instance.MapUILogic.Animator.GetBool("Open") || GameManager.instance.DeathUI.activeSelf)
+        {
+            moving = false;
+        }
+
             UpdatePlayerRotation();
             UpdateHeadRotation();
             Move();
-        }
+      
+        
 
 
-        moving = !GameManager.instance.MapUILogic.Animator.GetBool("Open");
-
-            if (moving)
+        if (moving)
         {
             
         }

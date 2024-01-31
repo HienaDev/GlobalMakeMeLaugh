@@ -418,5 +418,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b052f628d8fda41967fa047ee723d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fart: []
-  fartMixer: {fileID: 0}
+  fart:
+  - {fileID: 8300000, guid: d409d86c821423f4893f43ea98897236, type: 3}
+  - {fileID: 8300000, guid: 28773ecb927a96747a8c0a56cad9ca4b, type: 3}
+  - {fileID: 8300000, guid: f2296b3743208b44a9bb141fa9b72286, type: 3}
+  - {fileID: 8300000, guid: d958f41bc918c5f44b100e2aa0a3aec1, type: 3}
+  - {fileID: 8300000, guid: 93c9012a5fe11c640b4d16a5f6dffc81, type: 3}
+  - {fileID: 8300000, guid: 0ccbc2e17e45f164f8088aba6585f0ec, type: 3}
+  fartMixer: {fileID: 1806874853853822559, guid: 749080eca2d9753449e88acc91ba4931,
+    type: 2}

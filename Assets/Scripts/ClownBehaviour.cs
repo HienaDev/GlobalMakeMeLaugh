@@ -99,9 +99,10 @@ public class ClownBehaviour : MonoBehaviour
     }
 
     public void SeePlayerSlip(){
-        Debug.Log("slipped on banana");
+        //Debug.Log("slipped on banana");
         Debug.Log("been bananed" + beenBananad);
         Debug.Log("see player" + seePlayer);
+        //Debug.Log(!beenBananad && seePlayer):
         if(!beenBananad && seePlayer){
             Debug.Log("THE PLAYER FELL ON BANANA HAHAHAHAHA");
             beenBananad = true;
@@ -139,7 +140,7 @@ public class ClownBehaviour : MonoBehaviour
         idlePie.SetActive(false);
         laughingPie.SetActive(true);
         agent.speed = 0;
-        StartCoroutine(CompletePieLaughter(1.15f));
+        StartCoroutine(CompletePieLaughter(3f));
         damaged = true;  
     }
 
@@ -147,10 +148,15 @@ public class ClownBehaviour : MonoBehaviour
     private IEnumerator CompletePieLaughter(float animDuration){
          float timeElapsed = 0f;
 
-        while(timeElapsed < animDuration){
+        GameManager.instance.LaughUI.SetActive(true);
+
+        while (timeElapsed < animDuration){
             timeElapsed += Time.deltaTime;
             yield return 0;
         }
+
+        GameManager.instance.LaughUI.SetActive(false);
+        GameManager.instance.XAnimator.SetTrigger("Point");
 
         animating = false;
         animComplete = true;
@@ -169,7 +175,7 @@ public class ClownBehaviour : MonoBehaviour
         idleAnim.SetActive(false);
         laughingAnim.SetActive(true);
         agent.speed = 0;
-        StartCoroutine(CompleteLaughter(1.15f));
+        StartCoroutine(CompleteLaughter(3f));
         damaged = true; 
     }
 
@@ -188,10 +194,18 @@ public class ClownBehaviour : MonoBehaviour
     private IEnumerator CompleteLaughter(float animDuration){
         float timeElapsed = 0f;
 
-        while(timeElapsed < animDuration){
+
+        GameManager.instance.LaughUI.SetActive(true);
+
+        
+
+        while (timeElapsed < animDuration){
             timeElapsed += Time.deltaTime;
             yield return 0;
         }
+
+        GameManager.instance.LaughUI.SetActive(false);
+        GameManager.instance.XAnimator.SetTrigger("Point");
 
         animating = false;
         animComplete = true;

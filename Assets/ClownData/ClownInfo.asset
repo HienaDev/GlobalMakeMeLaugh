@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClownInfo
   m_EditorClassIdentifier: 
   chaseThreshold: 40
-  roamSpeed: 7
-  chaseSpeed: 10
+  roamSpeed: 8
+  chaseSpeed: 14
   playerDetectionThreshold: 5
   dashSpeed: 100

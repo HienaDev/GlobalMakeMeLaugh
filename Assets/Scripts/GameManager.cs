@@ -48,6 +48,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private MapUILogic mapUILogic;
     public MapUILogic MapUILogic { get { return mapUILogic; } }
+
+    [SerializeField] private GameObject laughUI;
+    public GameObject LaughUI { get { return laughUI; } }
+
+    [SerializeField] private Animator xAnimator;
+    public Animator XAnimator { get { return xAnimator; } }
     public GameObject RunningUI { get {
 
 
